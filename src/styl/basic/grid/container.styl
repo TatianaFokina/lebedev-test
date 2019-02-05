@@ -13,7 +13,7 @@ make-container-width()
 		if $breakpoint != 0
 			@media (min-width: unquote($value["breakpoint"]))
 				width: unquote($value["container-width"])
-
-.container-fluid
+				
+.container
 	make-container()
-	max-width: $last-width
+	make-container-width()

@@ -8,16 +8,21 @@
 	//@extend .sticky-top
 	//background $brand-white
 	border-bottom 1px solid $brand-2
-	&__container
-	&__pers
-	&__pers-acc
-		@extend .d-flex
-		align-items center
-	&__pers
-		margin-left auto
+
+.header__container
+.header__acc-wrp
+.acc
+	@extend .d-flex
+	align-items center
+	
+.header__acc-wrp
+	margin-left auto
+
+
+
 
 // Avatar, messages counter, account name
-.pers-acc__avatar
+.acc__avatar
 	margin-right 8px
 	position relative
 	&-img
@@ -38,7 +43,7 @@
 	&-counter
 		border-radius 50%
 
-.pers-acc__name
+.acc__name
 	font-size $font-size-sm
 	color $brand-4
 
@@ -54,12 +59,12 @@
 // Menu
 // ===================================================================================================================
 
-.header__pers-settings
+.acc-dropdown-wrp
 	@extend .d-flex
 	margin-left 23px
 
 // Button
-.pers-acc-dropdown-btn
+.acc-dropdown-btn
 	@extend .btn-reset
 	width 10px
 	height 2px
@@ -69,5 +74,5 @@
 	background-repeat no-repeat
 
 // Dropdown menu
-.pers-acc-dropdown
-	display none // todo Временно!
+.acc-dropdown
+	@extend .hidden // todo Временно!
