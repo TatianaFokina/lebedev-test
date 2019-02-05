@@ -1,0 +1,129 @@
+// ===================================================================================================================
+// Sections
+// ===================================================================================================================
+
+// Styles for sections
+.section-1
+	margin-top 69px
+	margin-bottom 124px
+	
+.section-2
+	margin-bottom 71px
+	
+.section-3
+	margin-bottom 113px
+
+.section-4
+	margin-bottom 63px
+	
+.section-5
+	margin-bottom 117px
+	
+// Styles for section`s text
+.section
+	&-subtitle
+		margin-bottom 37px
+		font-size $font-size-md
+	&-subtitle
+	&-text-remark
+	&-pic__desc
+		color $brand-3
+	&-text-remark
+	&-pic__desc
+		font-size $font-size-sm
+
+
+
+
+// ===================================================================================================================
+// Section 1
+// ===================================================================================================================
+
+.section-1__checklist
+	@extend .list-reset
+	
+// Hidden native checkbox
+.checklist-item__input
+	position absolute
+	opacity 0
+	
+// Custom checkbox
+.checklist-item
+	&__checkbox // label
+		padding-left calc(19px + 16px)
+		display block
+		position relative
+	&__custom-input // span
+		height 24px
+		width @height
+		position absolute
+		top 0
+		left 0
+		border 1px solid $brand-3
+		border-radius 3px
+		cursor pointer
+		// Hover effects
+		&:hover
+			border 1px solid $brand-1
+		&:after // flag icon
+			width 10px
+			height 8px
+			display none
+			content ""
+			position absolute
+			left 6px
+			top 7px
+			background-image url("../imgs/icons/ico-flag.svg")
+			background-repeat none
+			background-size cover
+			background-position 0 50%
+		&:hover:after
+			width 10px
+			height 8px
+			display block
+			content ""
+			position absolute
+			left 6px
+			top 7px
+			background-image url("../imgs/icons/ico-flag.svg")
+			background-repeat none
+			background-size cover
+			background-position 0 50%
+
+// Checked effect
+[type=checkbox]:checked ~ .checklist-item__custom-input
+	background $brand-1
+	border 1px solid $brand-1
+	&:after
+		display block
+
+
+
+
+// ===================================================================================================================
+// Section 4
+// ===================================================================================================================
+
+// Image
+.section-4-pic
+	margin-top 51px
+
+.section-4-pic__img
+	width 100% // todo Возможно, задать общему классу
+
+
+
+
+// ===================================================================================================================
+// Section 5
+// ===================================================================================================================
+
+// Introduction paragraph name
+.section-name-par
+	margin-bottom 0
+	padding 32px 45px 20px 0
+	float left
+	font-size $font-size-xlg
+	color $warning-color
+	text-transform uppercase
+	text-shadow 9px 0 $brand-3

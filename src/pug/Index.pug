@@ -13,66 +13,68 @@ body
 
 	//-Header
 	header.header
-		.container
-			img(src="" alt="Lebedev logo").header__logo.g-logo
-			a(href="#" aria-label="Your account").header__acc
-				.header__acc-avatar
-					img(src="" alt="").header__acc-img
-					span.header__acc-counter 2
-				.header__acc-name Alice Hopkins
-			//-Menu
-			.header__acc-settings
-				button.acc-dropdown-btn(aria-label="Account settings")
-				nav.acc-dropdown
-					ul.acc-dropdown__list
+		.header__container.container-fluid
+			img(src="../imgs/lebedev-studio.svg" alt="Lebedev logo").header__logo.g-logo
+			.header__pers
+				a(href="#" aria-label="Your account").header__pers-acc
+					.pers-acc__avatar
+						img(src="../imgs/avatar.png" alt="").pers-acc__avatar-img
+						span.pers-acc__avatar-counter 2
+					.pers-acc__name Alice Hopkins
+				//-Menu
+				.header__pers-settings
+					button.pers-acc-dropdown-btn(aria-label="Account settings")
+					nav.pers-acc-dropdown
+						ul.pers-acc-dropdown__list
 
-						mixin list-item($itemName)
-							li.acc-dropdown__list-item
-								a(href="#").acc-dropdown__lnk= $itemName
-								block
+							mixin list-item($itemName)
+								li.pers-acc-dropdown__list-item
+									a(href="#").pers-acc-dropdown__lnk= $itemName
+									block
 
-						+list-item("Account")
-						+list-item("Settings")
-						+list-item("Messages")
-							span.acc-dropdown__counter +2
-						+list-item("Help & FAQ")
-						+list-item("Logout")
+							+list-item("Account")
+							+list-item("Settings")
+							+list-item("Messages")
+								span.pers-acc-dropdown__counter +2
+							+list-item("Help & FAQ")
+							+list-item("Logout")
 
 	//-Main content
 	.content
-		.container
+		.container-fluid
 			h1 Landing page
 
 			//-Section 1
 			.section.section-1
 				h2.section-title I’m ready to dev. test
 				.section-subtitle Ready. Steady. Go.
+				.row
+					//-Checkbox list
+					ul.section-1__checklist.col--lg-4
 
-				//-Checkbox list
-				ul.section-1__checklist
+						mixin checklist-item($labelId, $labelName, $idInput, $val)
+							li.checklist-item
+								label.checklist-item__checkbox(for=$labelId)= $labelName
+									input(type="checkbox" id=$idInput value=$val checked).checklist-item__input
+									span.checklist-item__custom-input
 
-					mixin checklist-item($labelId, $labelName, $idInput, $val)
-						li.checklist-item
-							label.checklist-item__name(for=$labelId)= $labelName
-							input(type="checkbox" id=$idInput value=$val).checklist-item__input
+						+checklist-item("check1", "I will not xerox my butt", "check1", "1")
+						+checklist-item("check2", "Funny noises are not funny", "check2", "2")
+						+checklist-item("check3", "A burp is not an answer", "check3", "3")
+						+checklist-item("check4", "I will not skateboard in the halls", "check4", "4")
+						+checklist-item("check5", "I will not show off", "check5", "5")
+						+checklist-item("check6", "I am not a robot", "check6", "6")
 
-					+checklist-item("check1", "I will not xerox my butt", "check1", "1")
-					+checklist-item("check2", "Funny noises are not funny", "check2", "2")
-					+checklist-item("check3", "A burp is not an answer", "check3", "3")
-					+checklist-item("check4", "I will not skateboard in the halls", "check4", "4")
-					+checklist-item("check5", "I will not show off", "check5", "5")
-					+checklist-item("check6", "I am not a robot", "check6", "6")
+					// Thumbnails
+					.section-1__pics.col--lg-8
 
-				// Thumbnails
-				.section-1__pics
+						mixin gallery-item($imgSrc, $imgAlt)
+							img(src= $imgSrc alt= $imgAlt).section-1__pics__item
 
-					mixin gallery-item($imgSrc, $imgAlt)
-						img(src= $imgSrc alt= $imgAlt).section-1__pics__item
-
-					+gallery-item("", "Man do PC working")
-					+gallery-item("", "Snippet")
-					+gallery-item("", "Man use a tablet and a PC")
-					+gallery-item("", "Laptop, keyboard lay on a table")
+						+gallery-item("", "Man do PC working")
+						+gallery-item("", "Snippet")
+						+gallery-item("", "Man use a tablet and a PC")
+						+gallery-item("", "Laptop, keyboard lay on a table")
 
 				.go-further Go further
 
@@ -108,99 +110,83 @@ body
 				h2.section-title I’d like trrrr & tddd
 				.section-subtitle < >
 
-			//-Table
-			table.cart
-				thead.cart__head
-					th(scope="col").cart__head-item Product
-					th(scope="col").cart__head-item Color
-					th(scope="col").cart__head-item Size
-					th(scope="col").cart__head-item Quantity
-					th(scope="col").cart__head-item Total Price
-				tbody.cart__body
+				//-Table
+				table.cart
+					thead.cart__head
+						th(scope="col").cart__head-item Product
+						th(scope="col").cart__head-item Color
+						th(scope="col").cart__head-item Size
+						th(scope="col").cart__head-item Quantity
+						th(scope="col").cart__head-item Total Price
+					tbody.cart__body
 
-					//mixin table-row-1($limit)
-						- for (var $i = 1; $i <= $limit; $i++)
-						td.table-row__item= "Cell " + $i
+						//mixin table-row-1($limit)
+							- for (var $i = 1; $i <= $limit; $i++)
+							td.table-row__item= "Cell " + $i
 
-					tr.cart__row
-						//+table-row-1(4)
-						td.cart__cell
-							img(src="" alt="").product-img
-						td.cart__cell
-							button.field-color
-								.field-color__current
-						td.cart__cell
-							button.field-size
-								.field-size__current
-						td.cart__cell
-							.field-quantity
-								button.field-quantity__minus
-								input.field-quantity__input
-								button.field-quantity__plus
-						td.cart__cell.cart__price $79.98
-						td.cart__cell
-							button.cart__btn-remove
+						tr.cart__row
+							//+table-row-1(4)
+							td.cart__cell
+								img(src="" alt="").product-img
+							td.cart__cell
+								button.field-color
+									.field-color__current
+							td.cart__cell
+								button.field-size
+									.field-size__current
+							td.cart__cell
+								.field-quantity
+									button.field-quantity__minus
+									input.field-quantity__input
+									button.field-quantity__plus
+							td.cart__cell.cart__price $79.98
+							td.cart__cell
+								button.cart__btn-remove
 
-			.cart__purchase-details
-				.cart__shiping-price
-					span.cart__purchase-details__label Shipping:
-					span.cart__purchase-details__val $9.99
-				.cart__total-price
-					span.cart__purchase-details__label Total:
-					span.cart__purchase-details__val $104.39
+				.cart__purchase-details
+					.cart__shiping-price
+						span.cart__purchase-details__label Shipping:
+						span.cart__purchase-details__val $9.99
+					.cart__total-price
+						span.cart__purchase-details__label Total:
+						span.cart__purchase-details__val $104.39
 
-			.cart__actions
-				a(href="#").cart__actions__lnk Continue shopping
-				a(href="#").cart__actions__btn Proceed checkout
+				.cart__actions
+					a(href="#").cart__actions__lnk Continue shopping
+					a(href="#").cart__actions__btn Proceed checkout
 
-			.benefits
-				.card-benefit
-					.card-benefit__ico
-					.card-benefit__ptice $ 17,675
-					.card-benefit__profit
-						span.card-benefit__profit__label Total profit
-						span.card-benefit__profit__val +$489
+				.benefits
+					.card-benefit
+						.card-benefit__ico
+						.card-benefit__ptice $ 17,675
+						.card-benefit__profit
+							span.card-benefit__profit__label Total profit
+							span.card-benefit__profit__val +$489
 
 			//-Section 4
 			article.section.section-4
 				h2.section-title Capable, Reliable & Experienced
 				.section-subtitle As Agent and Lead Arranger
-				p.section-text Varabart serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that
-				| supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million
-				| to $75 million of EBITDA.Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital
-				| markets capabilities allow us to provide total debt solutions with certainty of close.
-				p.section-text We are a value-added partner to private equity with a track record of delivering flexible financing and reliable execution across multiple transactions.
-				| We are committed to supporting a firm's objectives over the complete lifecycle of an investment, including facilitating organic growth, financing
-				| acquisitions, and completing recapitalizations.
-				figure.section-4__pic
-					img.section-4__pic__img(src="" alt="A lot of penguins")
-					figcaption.section-4__pic__desc Each member of our coverage team has spent their entire careers in the middle market. We have deep experience structuring, underwriting, and managing investments
-					| in a range of industries, as well as the resources to deliver efficient commitments and timely execution.
+				p.section-text Varabart serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to $75 million of EBITDA.Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital markets capabilities allow us to provide total debt solutions with certainty of close.
+				p.section-text We are a value-added partner to private equity with a track record of delivering flexible financing and reliable execution across multiple transactions. We are committed to supporting a firm's objectives over the complete lifecycle of an investment, including facilitating organic growth, financing acquisitions, and completing recapitalizations.
+				figure.section-4-pic.section-pic
+					img.section-4-pic__img.section-pic__img(src="../imgs/text/penguins.png" alt="A lot of penguins")
+					figcaption.section-4-pic__desc.section-pic__desc Each member of our coverage team has spent their entire careers in the middle market. We have deep experience structuring, underwriting, and managing investments in a range of industries, as well as the resources to deliver efficient commitments and timely execution.
 
 			//-Section 5
 			article.section.section-5
 				h2.section-title Experienced team of middle market professionals
 				.section-subtitle Senior Direct Lending Program
-				p.section-text Nogarav serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that
-				| supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to
-				| $75 million of EBITDA. Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital
-				| markets capabilities allow us to provide total debt solutions with certainty of close.
-				figure.section-5__pic
-					img.section-5__pic__img(src="" alt="A lot of chairs")
-					figcaption.section-5__pic__desc Introduction. Nextgen advertising right now
-				p.section-name-par Introduction
-				p.section-text Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans.
-				| These zooplankton are not particularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every day, they construct one or more spacious houses” that
-				| can exceed three feet in length. The houses are transparent mucus structures that encase the creatures inside. Giant larvaceans beat their tails to pump seawater through these structures, which filter tiny
-				| bits of dead or drifting organic matter for the animals to eat. When their filters get clogged, the larvaceans abandon ship and construct a new house. Laden with debris from the water
-				| column, old houses rapidly sink to the seafloor. In a study published in Science Advances on Wednesday, scientists near California’s Monterey Bay have found that, through this process, giant larvaceans can filter all of the bay’s water.
-				| That has been removed from the atmosphere by photosynthesizing organisms to the deep sea, where it can be buried and stored long term. And given their abundance in other parts of the world,
-				| these organisms likely play a crucial role in the global carbon cycle. When it comes to the flow of carbon in the ocean, we don’t know nearly as much as we should,” said Kakani Katija, a principal engineer at the Monterey Bay Aquarium Research
-				| Institute and the study’s lead author.
-				p.section-remark If we really want to understand how the system works, we have to look at all the players involved. Giant larvaceans are one important group we need to learn more about.” In the past, other scientists
-				| have tried studying giant larvaceans in the laboratory. But these efforts always failed because the animals’ houses were too fragile to be harvested and collected specimens were never able to build houses outside the ocean.
-				p.section-text To study the zooplankton in their natural habitat, Dr. Katija and her collaborators developed a new deep-sea imaging instrument, called DeepPIV, which they paired with a remotely operated vehicle.
-				| DeepPIV projects a sheet of laser light that cuts straight through a larvacean’s mucus house. A high-definition camera on the remotely operated vehicle can then capture the inner pumping mechanisms illuminated by the laser.
+				p.section-text Nogarav serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to $75 million of EBITDA. Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital markets capabilities allow us to provide total debt solutions with certainty of close.
+				.row
+					figure.section-5-pic.section-pic.col--lg-4
+						img.section-5-pic__img.section-pic__img(src="../imgs/text/chairs.png" alt="A lot of chairs")
+						figcaption.section-5-pic__desc Introduction. Nextgen advertising right now
+					.col--lg-8
+						p.section-name-par Introduction
+						p.section-text Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are not particularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every day, they construct one or more spacious houses” that can exceed three feet in length. The houses are transparent mucus structures that encase the creatures inside. Giant larvaceans beat their tails to pump seawater through these structures, which filter tiny bits of dead or drifting organic matter for the animals to eat. When their filters get clogged, the larvaceans abandon ship and construct a new house. Laden with debris from the water column, old houses rapidly sink to the seafloor. In a study published in Science Advances on Wednesday, scientists near California’s Monterey Bay have found that, through this process, giant larvaceans can filter all of the bay’s water. That has been removed from the atmosphere by photosynthesizing organisms to the deep sea, where it can be buried and stored long term. And given their abundance in other parts of the world, these organisms likely play a crucial role in the global carbon cycle. When it comes to the flow of carbon in the ocean, we don’t know nearly as much as we should,” said Kakani Katija, a principal engineer at the Monterey Bay Aquarium Research Institute and the study’s lead author.
+						p.section-text-remark If we really want to understand how the system works, we have to look at all the players involved. Giant larvaceans are one important group we need to learn more about.” In the past, other scientists have tried studying giant larvaceans in the laboratory. But these efforts always failed because the animals’ houses were too fragile to be harvested and collected specimens were never able to build houses outside the ocean.
+						p.section-text To study the zooplankton in their natural habitat, Dr. Katija and her collaborators developed a new deep-sea imaging instrument, called DeepPIV, which they paired with a remotely operated vehicle. DeepPIV projects a sheet of laser light that cuts straight through a larvacean’s mucus house. A high-definition camera on the remotely operated vehicle can then capture the inner pumping mechanisms illuminated by the laser.
 
 			//-Section 6
 			.section.section-6
@@ -225,13 +211,12 @@ body
 
 					button.signup-btn(type="submit") Sign up
 
-				figure.section-6__pic
-					img.section-6__pic__img(src="" alt="Man in front of a mirror")
-					figcaption.section-6__pic__desc If we really want to understand how the system works, we have to look at all the players involved.
-					| Giant larvaceans are one important group we need to learn more about.
+				figure.section-6-pic.section-pic
+					img.section-6-pic__img.section-pic__img(src="" alt="Man in front of a mirror")
+					figcaption.section-6-pic__desc.section-pic__desc If we really want to understand how the system works, we have to look at all the players involved. Giant larvaceans are one important group we need to learn more about.
 
 	//-Footer
 	footer.footer
-		.container
+		.container-fluid
 			img(src="" alt="Lebedev logo").footer__logo.g-logo
 			.footer__text I'm done :)
