@@ -68,13 +68,13 @@ body
 					// Thumbnails
 					.section-1__pics.col--lg-8
 
-						mixin gallery-item($imgSrc, $imgAlt)
+						mixin thmb($imgSrc, $imgAlt)
 							img(src= $imgSrc alt= $imgAlt).section-1__pics__item
 
-						+gallery-item("", "Man do PC working")
-						+gallery-item("", "Snippet")
-						+gallery-item("", "Man use a tablet and a PC")
-						+gallery-item("", "Laptop, keyboard lay on a table")
+						+thmb("../imgs/tmbs/thmb-1.png", "Man do PC working")
+						+thmb("../imgs/tmbs/thmb-2.png", "Snippet")
+						+thmb("../imgs/tmbs/thmb-3.png", "Man use a tablet and a PC")
+						+thmb("../imgs/tmbs/thmb-4.png", "Laptop, keyboard lay on a table")
 
 				.go-further Go further
 
@@ -84,22 +84,24 @@ body
 				//-Slider
 				.slider
 
+					button(aria-pressed="false" aria-label="Next slide page").slider__btn.slider__btn--prev
+
 					mixin card($cardSrc, $cardTitle, $cardRating, $cardDesc)
 						article.card
 							img.card__preview(src= $cardSrc alt="")
 							button(aria-label="Add card").card__btn-add
-							.card__title= $cardTitle
-							.card__rating
-								.card__rating__num= $cardRating
-								.card__rating__counter(class="card__rating__counter--" + Math.round($cardRating))
-							p.card__desc= $cardDesc
+							.card__content
+								.card__content-title= $cardTitle
+								.card__content-rating
+									.content-rating__num= $cardRating
+									.content-rating__counter(class="card__rating__counter--" + Math.round($cardRating))
+								p.card__desc= $cardDesc
 
-					+card("", "Origin bridge", "4.3", "Our team is deeply experienced and we lend to businesses in a diverse range of industries.")
-					+card("", "Chronogate exp.", "5.0", "We offer competitive products across the debt capital structure, primarily serving borrowers.")
-					+card("", "Fashion week", "5.0", "Swimming hundreds of feet beneath the ocean’s surface in many parts.")
+					+card("../imgs/cards/card-img-1.png", "Origin bridge", "4.3", "Our team is deeply experienced and we lend to businesses in a diverse range of industries.")
+					+card("../imgs/cards/card-img-2.png", "Chronogate exp.", "5.0", "We offer competitive products across the debt capital structure, primarily serving borrowers.")
+					+card("../imgs/cards/card-img-3.png", "Fashion week", "5.0", "Swimming hundreds of feet beneath the ocean’s surface in many parts.")
 
-					button(aria-pressed="false" aria-label="Next slide").slider__btn.slider__btn--prev &#10094;
-					button(aria-pressed="false" aria-label="Previous slide").slider__btn.slider__btn--next &#10095;
+					button(aria-pressed="false" aria-label="Previous slide").slider__btn.slider__btn--next
 
 					.slider__dots
 						.slider__dots__dot.slider__dots__dot--active
@@ -120,28 +122,27 @@ body
 						th(scope="col").cart__head-item Total Price
 					tbody.cart__body
 
-						//mixin table-row-1($limit)
-							- for (var $i = 1; $i <= $limit; $i++)
-							td.table-row__item= "Cell " + $i
+						mixin cart-row($itemImg, $itemPrice)
+							tr.cart__row
+								td.cart__cell
+									img(src= $itemImg alt="").product-img
+								td.cart__cell
+									button.field-color
+										.field-color__current
+								td.cart__cell
+									button.field-size
+										.field-size__current
+								td.cart__cell
+									.field-quantity
+										button.field-quantity__minus
+										input.field-quantity__input
+										button.field-quantity__plus
+								td.cart__cell.cart__price= $itemPrice
+								td.cart__cell
+									button.cart__btn-remove
 
-						tr.cart__row
-							//+table-row-1(4)
-							td.cart__cell
-								img(src="" alt="").product-img
-							td.cart__cell
-								button.field-color
-									.field-color__current
-							td.cart__cell
-								button.field-size
-									.field-size__current
-							td.cart__cell
-								.field-quantity
-									button.field-quantity__minus
-									input.field-quantity__input
-									button.field-quantity__plus
-							td.cart__cell.cart__price $79.98
-							td.cart__cell
-								button.cart__btn-remove
+						+cart-row("../imgs/table/table-img-1.png", "$79.98")
+						+cart-row("../imgs/table/table-img-2.png", "$79.98")
 
 				.cart__purchase-details
 					.cart__shiping-price
@@ -217,6 +218,6 @@ body
 
 	//-Footer
 	footer.footer
-		.container-fluid
-			img(src="" alt="Lebedev logo").footer__logo.g-logo
+		.footer__container.container-fluid
+			img(src="../imgs/lebedev-studio.svg" alt="Lebedev logo").footer__logo.g-logo
 			.footer__text I'm done :)

@@ -24,6 +24,7 @@
 	&-subtitle
 		margin-bottom 37px
 		font-size $font-size-md
+		font-weight lighter
 	&-subtitle
 	&-text-remark
 	&-pic__desc
@@ -31,12 +32,13 @@
 	&-text-remark
 	&-pic__desc
 		font-size $font-size-sm
+		font-weight bold
 
 
 
 
 // ===================================================================================================================
-// Section 1
+// Section 1: checklist, thumbnails
 // ===================================================================================================================
 
 .section-1__checklist
@@ -100,6 +102,131 @@
 
 
 
+// Thumbnails
+
+.section-1__pics
+	@extend .d-flex
+
+.section-1__pics__item:nth(2n)
+	justify-self end
+
+.section-1__pics__item:not(:last-of-type)
+	margin-right 16px
+	
+
+
+// Next
+.go-further
+	margin-top 80px
+	position relative
+	font-weight bold
+	&:after
+		width 13px
+		height 48px
+		content ""
+		display block
+		position absolute
+		top 40px
+		left 31px
+		background-image url("../imgs/icons/ico-further.svg")
+		background-size cover
+		background-position 0 50%
+		background-repeat no-repeat
+
+
+
+
+// ===================================================================================================================
+// Section 2: cards, sliders
+// ===================================================================================================================
+
+// Slider
+.slider
+	@extend .d-flex
+	align-items center
+	
+//	Slider buttons
+.slider__btn
+	width 11px
+	height 27.5px
+	@extend .btn-reset
+	background-size cover
+	background-position 0 50%
+	background-repeat no-repeat
+	&--prev
+		margin-right 33px
+		background-image url("../imgs/icons/ico-arrow-prev.svg")
+	&--next
+		margin-left 33px
+		background-image url("../imgs/icons/ico-arrow-next.svg")
+
+// Slider dots
+.slider__dots
+	width 8px
+	height @width
+	@extend .d-flex
+	flex-wrap wrap
+	justify-content center
+	border 1px solid $brand-2
+	border-radius 50%
+	&:not(:last-of-type)
+		margin-right 8px
+	
+.slider__dots__dot--active
+	background $brand-1
+
+
+
+
+// Cards
+.card
+	width 336px
+	height auto
+	position relative
+	box-shadow 0 24px 40px rgba(57, 65, 74, 0.1)
+	border-radius 8px
+	&:not(:last-of-type)
+		margin-right 16px
+	// Add button
+	&__btn-add
+		width 48px
+		height @width
+		@extend .btn-reset
+		position absolute
+		top 216px
+		right 24px
+		background-image url("../imgs/icons/ico-plus.svg")
+		background-position 0 50%
+		background-size cover
+		background-repeat no-repeat
+		background $brand-1
+		border-radius 50%
+
+// Card content
+.card__content
+	padding 32px 32px 32px 38px
+	&-title
+		margin-bottom 11px
+		font-size $font-size-lg
+	// Rating
+	&-rating
+		margin-bottom 24px
+	&-rating__num
+		font-size $font-size-sm
+
+
+
+
+// ===================================================================================================================
+// Section 3: table, profit cards
+// ===================================================================================================================
+
+.cart__head-item
+	font-size $font-size-sm
+	color $brand-3
+
+
+
 // ===================================================================================================================
 // Section 4
 // ===================================================================================================================
@@ -110,6 +237,9 @@
 
 .section-4-pic__img
 	width 100% // todo Возможно, задать общему классу
+
+.section-4-pic__desc
+	margin-top 22px // todo Возможно, задать общему классу
 
 
 
@@ -124,6 +254,7 @@
 	padding 32px 45px 20px 0
 	float left
 	font-size $font-size-xlg
+	font-weight lighter
 	color $warning-color
 	text-transform uppercase
 	text-shadow 9px 0 $brand-3
