@@ -20,19 +20,22 @@
 	margin-bottom 117px
 	
 // Styles for section`s text
-.section
-	&-subtitle
-		margin-bottom 37px
-		font-size $font-size-md
-		font-weight lighter
-	&-subtitle
-	&-text-remark
-	&-pic__desc
-		color $brand-3
-	&-text-remark
-	&-pic__desc
-		font-size $font-size-sm
-		font-weight bold
+.section-subtitle
+	margin-bottom 37px
+	font-size $font-size-md
+	font-weight 300
+
+.section-subtitle
+.article-remark
+.article-pic-1__caption
+.signup-pic__caption
+	color $brand-3
+	
+.article-remark
+.article-pic-1__caption
+.signup-pic__caption
+	font-size $font-size-sm
+	font-weight 500
 
 
 
@@ -51,10 +54,12 @@
 	
 // Custom checkbox
 .checklist-item
+	margin-bottom 12px
 	&__checkbox // label
-		padding-left calc(19px + 16px)
-		display block
+		padding-left calc(24px + 16px)
+		display inline-block
 		position relative
+		line-height 24px
 	&__custom-input // span
 		height 24px
 		width @height
@@ -103,31 +108,57 @@
 
 
 // Thumbnails
-
 .section-1__pics
 	@extend .d-flex
+	height 184px
 
-.section-1__pics__item:nth(2n)
-	justify-self end
+.section-1__pics__item-wrp
+	position relative
+	&:not(:last-of-type)
+		margin-right 16px
+	&:nth-child(odd):before
+		margin-bottom 16px
+		width 1px
+		height 48px
+		content ""
+		display block
+		position relative
+		top 0
+		left 50%
+		transform translateX(-50%)
+		background $brand-2
+	&:nth-child(even):after
+		margin-top 16px
+		width 1px
+		height 48px
+		content ""
+		display block
+		position absolute
+		bottom 0
+		left 50%
+		transform translateX(-50%)
+		background $brand-2
 
-.section-1__pics__item:not(:last-of-type)
-	margin-right 16px
-	
+
 
 
 // Next
 .go-further
 	margin-top 80px
 	position relative
-	font-weight bold
+	display inline-block
+	transform translateX(-50%)
+	left 50%
+	font-weight 500
 	&:after
 		width 13px
 		height 48px
 		content ""
 		display block
-		position absolute
-		top 40px
-		left 31px
+		position relative
+		transform translateX(-50%)
+		left 50%
+		font-weight bold
 		background-image url("../imgs/icons/ico-further.svg")
 		background-size cover
 		background-position 0 50%
@@ -144,20 +175,24 @@
 .slider
 	@extend .d-flex
 	align-items center
+	position relative
 	
 //	Slider buttons
+$slider-btn-space = -33.88px
+
 .slider__btn
 	width 11px
 	height 27.5px
 	@extend .btn-reset
+	position absolute
 	background-size cover
 	background-position 0 50%
 	background-repeat no-repeat
 	&--prev
-		margin-right 33px
+		left $slider-btn-space
 		background-image url("../imgs/icons/ico-arrow-prev.svg")
 	&--next
-		margin-left 33px
+		right $slider-btn-space
 		background-image url("../imgs/icons/ico-arrow-next.svg")
 
 // Slider dots
@@ -195,11 +230,11 @@
 		position absolute
 		top 216px
 		right 24px
-		background-image url("../imgs/icons/ico-plus.svg")
-		background-position 0 50%
-		background-size cover
+		background-image url("../imgs/icons/ico-add.svg")
+		background-position center
+		background-size 16.8px 16.8px
 		background-repeat no-repeat
-		background $brand-1
+		background-color $brand-1
 		border-radius 50%
 
 // Card content
@@ -208,53 +243,405 @@
 	&-title
 		margin-bottom 11px
 		font-size $font-size-lg
-	// Rating
-	&-rating
-		margin-bottom 24px
-	&-rating__num
+
+// Rating
+.card__content-rating
+	margin-bottom 24px
+	@extend .d-flex
+	align-items center
+
+.content-rating
+	&__num
 		font-size $font-size-sm
+		color $brand-3
+	&__counter
+		margin-left 16px
+		width 36px
+		height 16px
+		background-position 0 50%
+		background-size cover
+		background-repeat no-repeat
+
+.card__rating__counter
+	&--4
+		background-image url("../imgs/icons/rating-bar--4.png")
+	&--5
+		background-image url("../imgs/icons/rating-bar--5.png")
 
 
 
 
 // ===================================================================================================================
-// Section 3: table, profit cards
+// Section 3: table, benefits cards
 // ===================================================================================================================
+
+// Table
+// Common table styles
+.cart
+	width 100%
+	border-collapse collapse
 
 .cart__head-item
 	font-size $font-size-sm
+	font-weight 400
 	color $brand-3
+	
+.cart__head-item
+.cart__cell
+	border-bottom 1px solid $brand-2
+
+.cart__cell
+.cart__head-item:not(:first-of-type)
+	padding 16px
+
+// Styles for table cells
+.product
+	&-img
+		padding-right 22px
+	&-name
+		font-size $font-size-md
+		font-weight 500
+
+// Cell controls
+// Reset button styles
+.field-color
+.field-size
+.field-quantity__minus
+.field-quantity__plus
+.cart__btn-remove
+	@extend .btn-reset
+	
+// Common styles for controls
+.field-color
+.field-size
+.field-quantity__input
+	width 88px
+	height 40px
+	border 1px solid $brand-2
+	border-radius 2px
+	position relative
+
+.field-color:after
+.field-size:after
+	width 8.67px
+	height 4px
+	content ""
+	position absolute
+	top 18px
+	right 21.67px
+	background-image url("../imgs/icons/ico-down-arrow.svg")
+	background-size cover
+	background-position 0 50%
+	background-repeat no-repeat
+
+//	Color control
+.field-color__current
+	margin-left 4px
+	width 32px
+	height @width
+	background $brand-3
+	border-radius 1px
+	
+//	Size control
+.field-size__current
+	margin-left 16px
+	text-align left
+	font-size $font-size-md
+	font-weight 500
+	
+// Quantity control
+.field-quantity
+	&__minus
+	&__plus
+		background-size cover
+		background-position center
+		background-repeat no-repeat
+	&__minus
+		width 8px
+		height 0.67px
+		background-image url("../imgs/icons/ico-minus.svg")
+	&__plus
+		width 8px
+		height @width
+		background-image url("../imgs/icons/ico-plus.svg")
+
+// Remove control
+.cart__btn-remove
+	width 12px
+	height @width
+	background-image url("../imgs/icons/ico-remove.svg")
+	background-size cover
+	background-position center
+	background-repeat no-repeat
+
+
+
+
+// Purchase details
+.cart
+	&__purchase-details
+		margin-top 28px
+		@extend .d-flex
+		flex-direction column
+		align-items flex-end
+	&__shiping-price
+	&__total-price
+		font-size $font-size-md
+	&__shiping-price:not(:last-of-type)
+		margin-bottom 19px
+	&__purchase-details__label
+		color $brand-3
+		padding-right 16px
+	&__actions
+		margin-top 38px
+		
+// Cart actions
+.cart__actions__lnk
+	margin-right 41px
+	position relative
+	font-size $font-size-xs--2
+	&:before // todo Прерывается!
+		width 5px
+		height 10.83px
+		content ""
+		position absolute
+		top -2px
+		left -8px
+		background-image url("../imgs/icons/ico-right-arrow.svg")
+		background-size cover
+		background-position center
+		background-repeat no-repeat
+
+.cart__actions__btn
+	padding 13px 9px 13px 42px
+	background $brand-1
+	color $brand-white
+	border-radius 2px
+
+
+
+
+// Benefits cards
+.benefits
+	margin-top 88px
+	@extend .d-flex
+
+// Benefits cards content
+.card-benefit
+	padding 28px 43px 28px 28px // todo Расстояние от правой стороны?
+	@extend .d-flex
+	align-items center
+	background $brand-white
+	box-shadow 0 12px 24px rgba(0, 0, 0, 0.03)
+	border-radius 4px
+	&:not(:last-of-type)
+		margin-right 16px
+
+// Benefit information
+.card-benefit__info-price
+		margin-bottom 12px
+		font-size $font-size-lg
+
+.profit
+	&-label
+		padding-right 8px
+		color $brand-3
+	&-val-up
+		color $success-color
+	&-val-down
+		color $error-color
+
+// Benefits cards icons
+.card-benefit__ico
+	padding-right 24px
+
+.benefit__ico
+	//position relative
+	&-cicle-out
+	&-cicle-inner
+		display block
+		//position absolute
+		border-radius 50%
+	&-cicle-out
+		width 88px
+		height @width
+		background red
+	/*&-cicle-inner
+		width 70.4px
+		height @width
+		background blue*/
+/*	&-img
+		width 70.4px
+		height @width
+		background-image url("../imgs/icons/ico-statistic.svg")
+		background-size cover
+		background-repeat no-repeat
+		*/
 
 
 
 // ===================================================================================================================
-// Section 4
+// Section 4: article with picture
 // ===================================================================================================================
 
 // Image
-.section-4-pic
-	margin-top 51px
-
-.section-4-pic__img
-	width 100% // todo Возможно, задать общему классу
-
-.section-4-pic__desc
-	margin-top 22px // todo Возможно, задать общему классу
+.article
+	&-pic-1
+		margin-top 51px
+	&-pic-1__img
+		width 100%
+	&-pic-1__caption
+		margin-top 18px
 
 
 
 
 // ===================================================================================================================
-// Section 5
+// Section 5: article with picture, name of paragraph and remark
 // ===================================================================================================================
 
 // Introduction paragraph name
-.section-name-par
+.article-name-par
 	margin-bottom 0
 	padding 32px 45px 20px 0
 	float left
 	font-size $font-size-xlg
-	font-weight lighter
-	color $warning-color
+	font-weight 100
+	color $brand-3
 	text-transform uppercase
-	text-shadow 9px 0 $brand-3
+	text-shadow -5px 0 $warning-color
+
+
+
+
+// ===================================================================================================================
+// Section 6: sign up form and picture
+// ===================================================================================================================
+
+// Form
+.signup__field
+	position relative
+	&:not(:last-of-type)
+		margin-bottom 41px
+	&-input
+		width 100%
+		padding 9px 0 7px 0
+		border 0
+		border-bottom 1px solid $brand-2
+		outline none
+	&-label
+		position absolute
+		bottom 7px
+		font-size $font-size-sm
+		transition all 150ms
+
+// Float label animation
+signup__field-input:focus + signup__field-label
+signup__field-input:valid + signup__field-label
+	font-size 75%
+	transform translate3d(0, -100%, 0)
+
+
+
+
+// Radio buttons
+.radio
+	&-label
+		margin-bottom 12px
+		line-height 1
+		font-size $font-size-xs--2
+	&-group
+		@extend .d-flex
+	&-group__field
+	&-label
+		color $brand-3
+	&-group__field:not(:last-of-type)
+		margin-right 12px
+	&-group__field
+		position relative
+	&-group__field-label
+		padding-left calc(24px + 8px)
+
+// Hidden default input
+.radio-group__field-input
+	position absolute
+	left 0
+	top 0
+	opacity 0
+
+// Custom input
+.radio-group__field-input + .radio-group__field-label:before
+.radio-group__field-input + .radio-group__field-label:after
+	content ""
+	position absolute
+	border-radius 50%
+	
+.radio-group__field-input + .radio-group__field-label:before
+	width 24px
+	height @width
+	left 0
+	top 0
+	border 1px solid $brand-3
+
+.radio-group__field-input + .radio-group__field-label:after
+	left 6px
+	top 6px
+	border 6px solid $brand-1
+	opacity 0
+	transition opacity 0.2s ease-in-out
+
+// Interactive
+.radio-group__field .radio-group__field-input:checked + .radio-group__field-label:after
+	opacity 1
+.radio-group__field-input:checked + .radio-group__field-label:before
+	border 1px solid $brand-1
+
+
+
+
+// Margin for btn and radio buttons
+.signup__radio
+.signup-btn
+	margin-top 32px
+
+// Form button
+.signup-btn
+	padding 10px 0
+	width 100%
+	@extend .btn-reset
+	background $brand-1
+	font-size $font-size-md
+	color $brand-white
+	border-radius 2px
+	
+
+// Form password list
+.rules-list
+	margin-top 21px
+	@extend .list-reset
+	&__item
+		padding-left 12.75px
+		position relative
+		font-size $font-size-xs
+		color $brand-3
+		&:not(:last-of-type)
+			margin-bottom 9px
+	&__item:before
+		width 7px
+		height 5px
+		display block
+		content ""
+		position absolute
+		top 2px
+		left 0
+		background-image url("../imgs/icons/ico-bullet.svg")
+		background-size cover
+		background-position center
+		background-repeat no-repeat
+
+
+
+
+// Sign up block Picture
+.signup-pic__caption
+	margin-top 10px
