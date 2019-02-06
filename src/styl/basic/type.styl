@@ -18,9 +18,8 @@ html
 
 h1,
 h2,
-h3,
-h4
-	font-weight normal
+h3
+	font-weight 400
 	line-height $headings-line-height
 	color $headings-color
 
@@ -33,8 +32,9 @@ h2
 	font-size $font-size-h2
 
 h3
-	margin-top 1.5rem // 24px
-	margin-bottom 1rem // 16px
+	margin-top $font-size-md
+	margin-bottom 15px
+	color $brand-white
 
 
 
@@ -45,9 +45,12 @@ h3
 
 p
 	margin-top 0
-	margin-bottom 36px
+	margin-bottom $mb = 36px
 	&:last-of-type
 		margin-bottom 0
+
+	/.p-margin-default
+		margin-bottom $mb !important
 
 
 
@@ -76,13 +79,3 @@ ul ol
 
 ul:last-of-type
 	margin-bottom 0
-
-
-
-
-// ===================================================================================================================
-// Placeholders
-// ===================================================================================================================
-
-/*::placeholder
-	color $brand-gray-dark*/

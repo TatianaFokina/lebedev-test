@@ -54,7 +54,8 @@
 	
 // Custom checkbox
 .checklist-item
-	margin-bottom 12px
+	&:not(:last-of-type)
+		margin-bottom 12px
 	&__checkbox // label
 		padding-left calc(24px + 16px)
 		display inline-block
@@ -175,14 +176,15 @@
 .slider
 	@extend .d-flex
 	align-items center
+	flex-wrap wrap
 	position relative
 	
 //	Slider buttons
-$slider-btn-space = -33.88px
+$slider-btn-space = -34px
 
 .slider__btn
 	width 11px
-	height 27.5px
+	height 27px
 	@extend .btn-reset
 	position absolute
 	background-size cover
@@ -197,11 +199,14 @@ $slider-btn-space = -33.88px
 
 // Slider dots
 .slider__dots
+	margin-top 28px
+	width 100%
+	@extend .d-flex
+	justify-content center
+
+.slider__dots__dot
 	width 8px
 	height @width
-	@extend .d-flex
-	flex-wrap wrap
-	justify-content center
 	border 1px solid $brand-2
 	border-radius 50%
 	&:not(:last-of-type)
@@ -209,6 +214,7 @@ $slider-btn-space = -33.88px
 	
 .slider__dots__dot--active
 	background $brand-1
+	border 0
 
 
 
@@ -220,6 +226,7 @@ $slider-btn-space = -33.88px
 	position relative
 	box-shadow 0 24px 40px rgba(57, 65, 74, 0.1)
 	border-radius 8px
+	overflow hidden
 	&:not(:last-of-type)
 		margin-right 16px
 	// Add button
@@ -232,7 +239,7 @@ $slider-btn-space = -33.88px
 		right 24px
 		background-image url("../imgs/icons/ico-add.svg")
 		background-position center
-		background-size 16.8px 16.8px
+		background-size 17px
 		background-repeat no-repeat
 		background-color $brand-1
 		border-radius 50%
@@ -451,32 +458,50 @@ $slider-btn-space = -33.88px
 	&-val-down
 		color $error-color
 
+
+
 // Benefits cards icons
 .card-benefit__ico
-	padding-right 24px
-
-.benefit__ico
-	//position relative
-	&-cicle-out
-	&-cicle-inner
-		display block
-		//position absolute
+	margin-right 24px
+	width 88px
+	height @width
+	display flex
+	justify-content center
+	align-items center
+	border-radius 50%
+	border 9px solid
+	&__img
+		width 53px
+		height @width
 		border-radius 50%
-	&-cicle-out
-		width 88px
-		height @width
-		background red
-	/*&-cicle-inner
-		width 70.4px
-		height @width
-		background blue*/
-/*	&-img
-		width 70.4px
-		height @width
-		background-image url("../imgs/icons/ico-statistic.svg")
-		background-size cover
+		border 1px solid alpha($brand-white, 20%)
+		background-size 22px
 		background-repeat no-repeat
-		*/
+		background-position 50% 50%
+
+//
+.card-benefit__ico
+	&--1
+		$ico-bg = #2F75EC
+		background $ico-bg
+		border-color tint($ico-bg, 80%)
+	&__img--1
+		background-image url("../imgs/icons/ico-statistic.svg")
+
+	&--2
+		$ico-bg = #A054C6
+		background $ico-bg
+		border-color tint($ico-bg, 80%)
+	&__img--2
+		background-image url("../imgs/icons/ico-chart.svg")
+
+	&--3
+		$ico-bg = $success-color
+		background $ico-bg
+		border-color tint($ico-bg, 80%)
+	&__img--3
+		background-image url("../imgs/icons/ico-graph.svg")
+
 
 
 
@@ -500,16 +525,38 @@ $slider-btn-space = -33.88px
 // Section 5: article with picture, name of paragraph and remark
 // ===================================================================================================================
 
+// Image with caption
+.article-pic-2
+	position relative
+	&__caption
+		width 142px
+		position absolute
+		bottom 28px
+		left 36px
+		line-height 20px
+	&__caption-subtitle
+		font-size $font-size-sm
+		color $brand-white
+		opacity .5
+
+
+
+
 // Introduction paragraph name
 .article-name-par
-	margin-bottom 0
-	padding 32px 45px 20px 0
+	margin 10px 45px 20px 0
+	width 211px
 	float left
 	font-size $font-size-xlg
+	line-height 1
 	font-weight 100
 	color $brand-3
 	text-transform uppercase
-	text-shadow -5px 0 $warning-color
+	$text-shadow = 8px
+	text-shadow - $text-shadow 0 $warning-color
+	white-space pre-line
+	letter-spacing 8px
+	transform translateX($text-shadow)
 
 
 

@@ -161,21 +161,19 @@ body
 
 				.benefits
 
-					mixin benefit-card($benefitImg, $price, $benefitLabel, $profitMod, $benefitVal)
+					mixin benefit-card($item, $price, $benefitLabel, $profitMod, $benefitVal)
 						.card-benefit
-							.card-benefit__ico
-								span.benefit__ico-cicle-out
-								span.benefit__ico-cicle-inner
-								img(src= $benefitImg alt="").benefit__ico-img
+							.card-benefit__ico(class="card-benefit__ico--" + $item)
+								.card-benefit__ico__img(class="card-benefit__ico__img--" + $item)
 							.card-benefit__info
 								.card-benefit__info-price= $price
 								.card-benefit__info-profit
 									span.profit-label= $benefitLabel
 									span(class="profit-val-" + $profitMod)= $benefitVal
 
-					+benefit-card("../imgs/icons/ico-statistic.svg", "$ 17,675", "Total profit", "up", "+$489")
-					+benefit-card("../imgs/icons/ico-chart.svg", "$ 7,831", "Total revenue", "up", "+$189")
-					+benefit-card("../imgs/icons/ico-graph.svg", "$ 298,45", "Average profit", "down", "-$39")
+					+benefit-card("1", "$ 17,675", "Total profit", "up", "+$489")
+					+benefit-card("2", "$ 7,831", "Total revenue", "up", "+$189")
+					+benefit-card("3", "$ 298,45", "Average profit", "down", "-$39")
 
 			//-Section 4
 			article.section.section-4
@@ -191,14 +189,23 @@ body
 			article.section.section-5
 				h2.section-title Experienced team of middle market professionals
 				.section-subtitle Senior Direct Lending Program
-				p.article-text Nogarav serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to $75 million of EBITDA. Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital markets capabilities allow us to provide total debt solutions with certainty of close.
+				p.article-text.p-margin-default Nogarav serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to $75 million of EBITDA. Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital markets capabilities allow us to provide total debt solutions with certainty of close.
 				.row
-					figure.article-pic.article-pic-2
-						img.article-pic-2__img(src="../imgs/text/chairs.png" alt="A lot of chairs")
-						figcaption.article-pic-2__caption Introduction. Nextgen advertising right now
+					.col--lg-4
+						figure.article-pic.article-pic-2
+							img.article-pic-2__img(src="../imgs/text/chairs.png" alt="A lot of chairs")
+							figcaption.article-pic-2__caption
+								h3.article-pic-2__caption-title Introduction
+								p.article-pic-2__caption-subtitle Nextgen advertising right now
 					.col--lg-8
-						p.article-name-par Introduction
-						p.article-text Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are not particularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every day, they construct one or more spacious houses” that can exceed three feet in length. The houses are transparent mucus structures that encase the creatures inside. Giant larvaceans beat their tails to pump seawater through these structures, which filter tiny bits of dead or drifting organic matter for the animals to eat. When their filters get clogged, the larvaceans abandon ship and construct a new house. Laden with debris from the water column, old houses rapidly sink to the seafloor. In a study published in Science Advances on Wednesday, scientists near California’s Monterey Bay have found that, through this process, giant larvaceans can filter all of the bay’s water. That has been removed from the atmosphere by photosynthesizing organisms to the deep sea, where it can be buried and stored long term. And given their abundance in other parts of the world, these organisms likely play a crucial role in the global carbon cycle. When it comes to the flow of carbon in the ocean, we don’t know nearly as much as we should,” said Kakani Katija, a principal engineer at the Monterey Bay Aquarium Research Institute and the study’s lead author.
+
+						p.article-text Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are notparticularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every
+							span.article-name-par.
+								In
+								tro
+								duct
+								ion
+							|  day, they construct one or more spacious houses” that can exceed three feet in length. The houses are transparent mucus structures that encase the creatures inside. Giant larvaceans beat their tails to pump seawater through these structures, which filter tiny bits of dead or drifting organic matter for the animals to eat. When their filters get clogged, the larvaceans abandon ship and construct a new house. Laden with debris from the water column, old houses rapidly sink to the seafloor. In a study published in Science Advances on Wednesday, scientists near California’s Monterey Bay have found that, through this process, giant larvaceans can filter all of the bay’s water. That has been removed from the atmosphere by photosynthesizing organisms to the deep sea, where it can be buried and stored long term. And given their abundance in other parts of the world, these organisms likely play a crucial role in the global carbon cycle. When it comes to the flow of carbon in the ocean, we don’t know nearly as much as we should,” said Kakani Katija, a principal engineer at the Monterey Bay Aquarium Research Institute and the study’s lead author.
 						p.article-remark If we really want to understand how the system works, we have to look at all the players involved. Giant larvaceans are one important group we need to learn more about.” In the past, other scientists have tried studying giant larvaceans in the laboratory. But these efforts always failed because the animals’ houses were too fragile to be harvested and collected specimens were never able to build houses outside the ocean.
 						p.article-text To study the zooplankton in their natural habitat, Dr. Katija and her collaborators developed a new deep-sea imaging instrument, called DeepPIV, which they paired with a remotely operated vehicle. DeepPIV projects a sheet of laser light that cuts straight through a larvacean’s mucus house. A high-definition camera on the remotely operated vehicle can then capture the inner pumping mechanisms illuminated by the laser.
 
@@ -209,9 +216,9 @@ body
 				//-Form
 				.row
 					.col--lg-6
-						.row
-							.col--lg-6
-								form.signup
+						form.signup
+							.row
+								.col--lg-6
 									.signup__field
 										label.signup__field-label(for="name") Your name
 										input.signup__field-input(type="text" name="name" id="name")
@@ -224,28 +231,27 @@ body
 									.signup__field
 										label.signup__field-label(for="age") Your age
 										input.signup__field-input(type="text" name="age" id="age")
-								form.signup__radio
-									fieldset
-										legend.radio-label Gender:
-										.radio-group
-											.radio-group__field
-												input.radio-group__field-input(type="radio" id="v1" name="gender" value="male" checked)
-												label.radio-group__field-label(for="v1") Male
-											.radio-group__field
-												input.radio-group__field-input(type="radio" id="v2" name="gender" value="female")
-												label.radio-group__field-label(for="v2") Female
-							.col--lg-6
-								form.signup
+									.signup__radio
+										fieldset
+											legend.radio-label Gender:
+											.radio-group
+												.radio-group__field
+													input.radio-group__field-input(type="radio" id="v1" name="gender" value="male" checked)
+													label.radio-group__field-label(for="v1") Male
+												.radio-group__field
+													input.radio-group__field-input(type="radio" id="v2" name="gender" value="female")
+													label.radio-group__field-label(for="v2") Female
+								.col--lg-6
 									.signup__field
 										label.signup__field-label(for="password") Password
 										input.signup__field-input(type="password" name="password" id="password" pattern="[6-25]{5}" aria-describedby="password-desc")
 									.signup__field
 										label.signup__field-label(for="password2") Confirm password
 										input.signup__field-input(type="password" name="password-2" id="password2" pattern="[6-25]{5}" aria-describedby="password-desc")
-								ul.rules-list
-									li.rules-list__item(lang="ru") Не менее 6 символов
-									li.rules-list__item(lang="ru") Заглавные и строчные буквы
-									li.rules-list__item(lang="ru") Цифры и специальные знаки
+									ul.rules-list
+										li.rules-list__item(lang="ru") Не менее 6 символов
+										li.rules-list__item(lang="ru") Заглавные и строчные буквы
+										li.rules-list__item(lang="ru") Цифры и специальные знаки
 
 						button.signup-btn(type="submit") Sign up
 					figure.signup-pic.col--lg-6

@@ -1,13 +1,19 @@
 // ===================================================================================================================
 // Header
 // ===================================================================================================================
+$header-height = 48px
 
 .header
 	padding 8px 0
-	height 48px
-	//@extend .sticky-top
-	//background $brand-white
+	width 100%
+	height $header-height
+	position fixed
+	background $brand-white
 	border-bottom 1px solid $brand-2
+	z-index 999
+	
+.content
+	margin-top $header-height
 
 .header__container
 .header__acc-wrp
