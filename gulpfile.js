@@ -28,8 +28,8 @@ var gulp = require('gulp'),
 	notify = require("gulp-notify"),
 	modifyCssUrls = require('gulp-modify-css-urls'), // меняет пути к файлам в css
 	postcss_inline_svg = require('postcss-inline-svg'),
-	replace = require('gulp-replace'),
-	purify = require('gulp-purifycss'); // убирает неиспользуемые стили
+	replace = require('gulp-replace');
+	//purify = require('gulp-purifycss'); // убирает неиспользуемые стили
 
 
 
@@ -124,7 +124,7 @@ gulp.task('__compilePug', function () {
 // ========================================================================
 // JS
 gulp.task('__mergeJS', function() {
-	return gulp.src('./src/js/js-list.json') // список подключаемых файлов. Если подключаем один файл, то убрать скобки и запятые
+	return gulp.src(require('./src/js/js-list.json')) // список подключаемых файлов. Если подключаем один файл, то убрать скобки и запятые
 		.pipe(plumber())
 		.pipe(concat('bundle.js')) // собираем их в кучу в новом файле
 		.pipe(gulp.dest('test/js')) // сохраняем в папку
@@ -207,9 +207,9 @@ gulp.task('Build', gulp.series(gulp.parallel('__delTest', '__deldocs'), gulp.par
 
 	// CSS
 	gulp.src('test/css/**/*.css')
-		.pipe(purify(['test/**/*.html'], { // убирает неиспользуемые стили
+		/*.pipe(purify(['test/!**!/!*.html'], { // убирает неиспользуемые стили
 			whitelist: require('./src/js/whitelist-purify.json') // массив с селекторами. Array of selectors to always leave in. Ex. ['button-active', '*modal*'] this will leave any selector that includes modal in it and selectors that match button-active. (wrapping the string with *'s, leaves all selectors that include it)
-		}))
+		}))*/
 		//.pipe(gulp_postcss($postcss_plugins))
 		// Добавляем суффикс .min
 		//.pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
