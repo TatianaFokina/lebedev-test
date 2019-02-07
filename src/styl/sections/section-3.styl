@@ -1,0 +1,247 @@
+// ===================================================================================================================
+// Section 3: table, benefits cards
+// ===================================================================================================================
+
+// Table
+// Common table styles
+.cart
+	width 100%
+	line-height 1
+	border-collapse collapse
+
+.cart__head-item
+	font-size $font-size-sm
+	font-weight 400
+	color $brand-3
+
+.cart__head-item
+.cart__cell
+	border-bottom 1px solid $brand-2
+
+.cart__cell
+.cart__head-item:not(:first-of-type)
+	padding 16px
+
+// Styles for table cells
+.product
+	&-img
+		padding-right 22px
+	&-name
+		font-size $font-size-md
+		font-weight 500
+
+// Cell controls
+// Reset button styles
+.field-color
+.field-size
+.field-quantity__minus
+.field-quantity__plus
+.cart__btn-remove
+	@extend .btn-reset
+
+// Common styles for controls
+.field-color
+.field-size
+.field-quantity__input
+	width 88px
+	height 40px
+	border 1px solid $brand-2
+	border-radius 2px
+	position relative
+
+.field-color:after
+.field-size:after
+	width 8.67px
+	height 4px
+	content ""
+	position absolute
+	top 18px
+	right 21.67px
+	background-image url("../imgs/icons/ico-down-arrow.svg")
+	background-size cover
+	background-position 0 50%
+	background-repeat no-repeat
+
+//	Color control
+.field-color__current
+	margin-left 4px
+	width 32px
+	height @width
+	background $brand-3
+	border-radius 1px
+
+//	Size control
+.field-size__current
+	margin-left 16px
+	text-align left
+	font-size $font-size-md
+	font-weight 500
+
+// Quantity control
+.field-quantity
+	&__minus
+	&__plus
+		background-size cover
+		background-position center
+		background-repeat no-repeat
+	&__minus
+		width 8px
+		height 0.67px
+		background-image url("../imgs/icons/ico-minus.svg")
+	&__plus
+		width 8px
+		height @width
+		background-image url("../imgs/icons/ico-plus.svg")
+
+// Remove control
+.cart__btn-remove
+	width 12px
+	height @width
+	background-image url("../imgs/icons/ico-remove.svg")
+	background-size cover
+	background-position center
+	background-repeat no-repeat
+
+
+
+
+// Purchase details
+.cart
+	&__purchase-details
+		margin-top 28px
+		@extend .d-flex
+		flex-direction column
+		align-items flex-end
+		line-height 1
+	&__shiping-price
+	&__total-price
+		font-size $font-size-md
+	&__shiping-price:not(:last-of-type)
+		margin-bottom 19px
+	&__purchase-details__label
+		color $brand-3
+		padding-right 16px
+	&__actions
+		margin-top 38px
+
+// Cart actions
+.cart__actions__lnk
+	margin-right 41px
+	position relative
+	font-size $font-size-xs--2
+	&:before // todo Прерывается!
+		width 5px
+		height 10.83px
+		content ""
+		position absolute
+		top -2px
+		left -8px
+		background-image url("../imgs/icons/ico-right-arrow.svg")
+		background-size cover
+		background-position center
+		background-repeat no-repeat
+
+.cart__actions__btn
+	padding 13px 9px 13px 42px
+	background $brand-1
+	color $brand-white
+	border-radius 2px
+
+
+
+
+// Benefits cards
+.benefits
+	margin-top 88px
+	@extend .d-flex
+
+// Benefits cards content
+.card-benefit
+	padding 28px 44px 28px 28px // todo Карточки одинаковой ширины
+	@extend .d-flex
+	align-items center
+	background $brand-white
+	box-shadow 0 12px 24px rgba(0, 0, 0, 0.03)
+	border-radius 4px
+	cursor pointer
+	&:not(:last-of-type)
+		margin-right 16px
+
+// Benefit information
+.card-benefit__info-price
+	margin-bottom 12px
+	line-height 1
+	font-size $font-size-lg
+
+.profit
+	&-label
+		padding-right 8px
+		color $brand-3
+	&-val-up
+		color $success-color
+	&-val-down
+		color $error-color
+
+
+
+
+// Common styles for benefits cards icons
+.card-benefit__ico
+	margin-right 24px
+	width 88px
+	height @width
+	display flex
+	justify-content center
+	align-items center
+	border-radius 50%
+	border 9px solid
+	&__img
+		width 53px
+		height @width
+		border-radius 50%
+		border 1px solid alpha($brand-white, 20%)
+		background-size 22px
+		background-repeat no-repeat
+		background-position 50% 50%
+
+// Add benefits cards icons
+.card-benefit__ico
+	&--1
+		$ico-bg = #2F75EC
+		background $ico-bg
+		border-color tint($ico-bg, 80%)
+	&__img--1
+		background-image url("../imgs/icons/ico-statistic.svg")
+	
+	&--2
+		$ico-bg = #A054C6
+		background $ico-bg
+		border-color tint($ico-bg, 80%)
+	&__img--2
+		background-image url("../imgs/icons/ico-chart.svg")
+	
+	&--3
+		$ico-bg = $success-color
+		background $ico-bg
+		border-color tint($ico-bg, 80%)
+	&__img--3
+		background-image url("../imgs/icons/ico-graph.svg")
+
+
+
+
+// Benefits cards active styles
+
+.card-benefit:active
+	$color-active = $brand-white
+	background $brand-1
+	color $color-active
+	.profit-label
+	.profit-val
+		color $color-active
+	.profit-label
+		opacity .5
+	.card-benefit__ico
+		$ico-bg-active = #338DE6
+		background $ico-bg-active
+		border-color $ico-bg-active

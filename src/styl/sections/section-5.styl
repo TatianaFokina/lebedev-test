@@ -1,0 +1,36 @@
+// ===================================================================================================================
+// Section 5: article with picture, name of paragraph and remark
+// ===================================================================================================================
+
+// Image with caption
+.article-pic-2
+	position relative
+	&__caption
+		width 142px
+		position absolute
+		bottom 28px
+		left 36px
+		line-height 20px
+	&__caption-subtitle
+		font-size $font-size-sm
+		color $brand-white
+		opacity .5
+
+
+
+
+// Introduction paragraph name
+.article-name-par
+	margin 10px 45px 20px 0
+	width 211px
+	float left
+	font-size $font-size-xlg
+	line-height 1
+	font-weight 100
+	color $brand-3
+	text-transform uppercase
+	$text-shadow = 8px
+	text-shadow - $text-shadow 0 $warning-color
+	white-space pre-line
+	letter-spacing 8px
+	transform translateX($text-shadow)

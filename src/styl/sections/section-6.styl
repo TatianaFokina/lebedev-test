@@ -1,0 +1,136 @@
+// ===================================================================================================================
+// Section 6: sign up form and picture
+// ===================================================================================================================
+
+// Form
+.signup__field
+	position relative
+	&:not(:last-of-type)
+		margin-bottom 38px
+	&-input
+		width 100%
+		padding 9px 0 7px 0
+		border 0
+		border-bottom 1px solid $brand-2
+		outline none
+	&-label
+		position absolute
+		bottom 7px
+		font-size $font-size-sm
+		transition all 150ms
+
+// Float label animation
+signup__field-input:focus + signup__field-label
+signup__field-input:valid + signup__field-label
+	font-size 75%
+	transform translate3d(0, -100%, 0)
+
+
+
+
+// Radio buttons
+.radio
+	&-label
+		margin-bottom 12px
+		line-height 1
+		font-size $font-size-xs--2
+	&-group
+		@extend .d-flex
+	&-group__field
+	&-label
+		color $brand-3
+	&-group__field:not(:last-of-type)
+		margin-right 12px
+	&-group__field
+		position relative
+	&-group__field-label
+		padding-left calc(24px + 8px)
+
+// Hidden default input
+.radio-group__field-input
+	position absolute
+	left 0
+	top 0
+	opacity 0
+
+// Custom input
+.radio-group__field-input + .radio-group__field-label:before
+.radio-group__field-input + .radio-group__field-label:after
+	content ""
+	position absolute
+	border-radius 50%
+
+.radio-group__field-input + .radio-group__field-label:before
+	width 24px
+	height @width
+	left 0
+	top 0
+	border 1px solid $brand-3
+
+.radio-group__field-input + .radio-group__field-label:after
+	left 6px
+	top 6px
+	border 6px solid $brand-1
+	opacity 0
+	transition opacity 0.2s ease-in-out
+
+// Interactive
+.radio-group__field .radio-group__field-input:checked + .radio-group__field-label:after
+	opacity 1
+.radio-group__field-input:checked + .radio-group__field-label:before
+	border 1px solid $brand-1
+
+
+
+
+// Margin for btn and radio buttons
+.signup__radio
+.signup-btn
+	margin-top 32px
+
+// Form button
+.signup-btn
+	padding 10px 0
+	width 100%
+	@extend .btn-reset
+	background $brand-1
+	font-size $font-size-md
+	color $brand-white
+	border-radius 2px
+
+
+// Form password list
+.rules-list
+	margin-top 21px
+	@extend .list-reset
+	&__item
+		padding-left 13px
+		position relative
+		font-size $font-size-xs
+		color $brand-3
+		&:not(:last-of-type)
+			margin-bottom 9px
+	&__item:before
+		width 7px
+		height 5px
+		display block
+		content ""
+		position absolute
+		top 2px
+		left 0
+		background-image url("../imgs/icons/ico-bullet.svg")
+		background-size cover
+		background-position center
+		background-repeat no-repeat
+
+
+
+
+// Sign up block Picture
+.signup-pic
+	@extend .d-flex
+	flex-direction column
+	&__caption
+		margin-top 10px
+		width 370px
+		align-self center

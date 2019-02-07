@@ -1,0 +1,107 @@
+// ===================================================================================================================
+// Section 2: cards, sliders
+// ===================================================================================================================
+
+// Slider
+.slider
+	@extend .d-flex
+	align-items center
+	flex-wrap wrap
+	position relative
+
+//	Slider buttons
+$slider-btn-space = -34px
+
+.slider__btn
+	width 11px
+	height 27px
+	@extend .btn-reset
+	position absolute
+	background-size cover
+	background-position 0 50%
+	background-repeat no-repeat
+	&--prev
+		left $slider-btn-space
+		background-image url("../imgs/icons/ico-arrow-prev.svg")
+	&--next
+		right $slider-btn-space
+		background-image url("../imgs/icons/ico-arrow-next.svg")
+
+// Slider dots
+.slider__dots
+	margin-top 28px
+	width 100%
+	@extend .d-flex
+	justify-content center
+
+.slider__dots__dot
+	width 8px
+	height @width
+	border 1px solid $brand-2
+	border-radius 50%
+	&:not(:last-of-type)
+		margin-right 8px
+
+.slider__dots__dot--active
+	background $brand-1
+	border 0
+
+
+
+
+// Cards
+.card
+	width 336px
+	height auto
+	position relative
+	box-shadow 0 24px 40px rgba(57, 65, 74, 0.1)
+	border-radius 8px
+	overflow hidden
+	&:not(:last-of-type)
+		margin-right 16px
+	// Add button
+	&__btn-add
+		width 48px
+		height @width
+		@extend .btn-reset
+		position absolute
+		top 216px
+		right 24px
+		background-image url("../imgs/icons/ico-add.svg")
+		background-position center
+		background-size 17px
+		background-repeat no-repeat
+		background-color $brand-1
+		border-radius 50%
+
+// Card content
+.card__content
+	padding 32px 32px 32px 38px
+	&-title
+		margin-bottom 11px
+		font-size $font-size-lg
+		line-height 1
+
+// Rating
+.card__content-rating
+	margin-bottom 24px
+	@extend .d-flex
+	align-items center
+
+.content-rating
+	&__num
+		font-size $font-size-sm
+		color $brand-3
+	&__counter
+		margin-left 16px
+		width 36px
+		height 16px
+		background-position 0 50%
+		background-size cover
+		background-repeat no-repeat
+
+.card__rating__counter
+	&--4
+		background-image url("../imgs/icons/rating-bar--4.png")
+	&--5
+		background-image url("../imgs/icons/rating-bar--5.png")
