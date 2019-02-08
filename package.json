@@ -43,6 +43,7 @@
     "postcss-svgo": "^2.1.6"
   },
   "dependencies": {
+    "flexbox-polyfills": "^1.0.2",
     "postcss-merge-rules": "^2.1.2"
   }
 }

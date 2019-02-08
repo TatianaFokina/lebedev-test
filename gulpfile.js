@@ -48,7 +48,7 @@ gulp.task('__compileStylus', function () {
 				//"last 2 versions",
 				"> 0%",
 				"Firefox >= 30",
-				"ie <= 11" // версии поддерживаемых браузеров
+				"ie >= 11" // версии поддерживаемых браузеров
 			],
 			cascade: false
 		}),
@@ -74,7 +74,8 @@ gulp.task('__compileStylus_docs', function () {
 			browsers: [
 				"last 2 versions",
 				"> 5%",
-				"Firefox >= 30" // версии поддерживаемых браузеров
+				"Firefox >= 30",
+				"ie >= 11" // версии поддерживаемых браузеров
 			],
 			cascade: false
 		}),
