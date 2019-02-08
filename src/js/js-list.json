@@ -1,3 +1,6 @@
 [
-  "./src/js/slider.js"
+  "./src/js/dropdown-header.js",
+  "./src/js/dropdown.js",
+  "./src/js/slider.js",
+  "./src/js/fields.js"
 ]
