@@ -8,7 +8,7 @@ $(function() {
 
 	function dotNow() {
 		$('.slider__dots__dot').removeClass('slider__dots__dot--active').eq($slideNow - 1).addClass('slider__dots__dot--active');
-		$('.slider__cards').removeClass('--active').eq($slideNow - 1).addClass('--active');
+		$('.slider__cards').removeClass('active').eq($slideNow - 1).addClass('active');
 
 	}
 
@@ -51,7 +51,7 @@ $(function() {
 		$(this).addClass('slider__dots__dot--active');
 
 		if ($dotId + 1 !== $slideNow) {
-			$('.slider__cards').removeClass('--active').eq($dotId).addClass('--active');
+			$('.slider__cards').removeClass('active').eq($dotId).addClass('active');
 			$slideNow = $dotId + 1;
 		}
 	});
