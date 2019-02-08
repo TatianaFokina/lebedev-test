@@ -67,31 +67,47 @@
 	margin-left 4px
 	width 32px
 	height @width
+	display block
 	background $brand-3
 	border-radius 1px
 
 //	Size control
-.field-size__current
-	margin-left 16px
+.field-size
+	padding-left 16px
 	text-align left
 	font-size $font-size-md
 	font-weight 500
 
 // Quantity control
 .field-quantity
+	display inline-block
+	position relative
+	&__input
+		padding-left 36px
+		font-size $font-size-md
+		font-weight 500
 	&__minus
 	&__plus
-		background-size cover
+		position absolute
 		background-position center
 		background-repeat no-repeat
 	&__minus
-		width 8px
-		height 0.67px
+		width 28px
+		height 100%
+		left 0
+		background-size 10px
+	&__minus--active
 		background-image url("../imgs/icons/ico-minus.svg")
+	&__minus--disabled
+		background-image url("../imgs/icons/ico-minus--disabled.svg")
 	&__plus
-		width 8px
-		height @width
+		width 28px
+		height 100%
+		right 0
 		background-image url("../imgs/icons/ico-plus.svg")
+		background-size 8px
+	
+	
 
 // Remove control
 .cart__btn-remove
@@ -127,19 +143,13 @@
 // Cart actions
 .cart__actions__lnk
 	margin-right 41px
+	padding 10px 0 10px 12px
 	position relative
 	font-size $font-size-xs--2
-	&:before // todo Прерывается!
-		width 5px
-		height 10.83px
-		content ""
-		position absolute
-		top -2px
-		left -8px
-		background-image url("../imgs/icons/ico-right-arrow.svg")
-		background-size cover
-		background-position center
-		background-repeat no-repeat
+	background-image url("../imgs/icons/ico-right-arrow.svg")
+	background-size 5px 11px
+	background-position 1px 10px
+	background-repeat no-repeat
 
 .cart__actions__btn
 	padding 13px 9px 13px 42px
@@ -157,7 +167,7 @@
 
 // Benefits cards content
 .card-benefit
-	padding 28px 44px 28px 28px // todo Карточки одинаковой ширины
+	padding 28px 0 28px 28px
 	@extend .d-flex
 	align-items center
 	background $brand-white
@@ -231,7 +241,6 @@
 
 
 // Benefits cards active styles
-
 .card-benefit:active
 	$color-active = $brand-white
 	background $brand-1

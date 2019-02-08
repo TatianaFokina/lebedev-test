@@ -45,10 +45,10 @@ gulp.task('__compileStylus', function () {
 		postcss_inline_svg,
 		autoprefixer({
 			browsers: [
-				"last 2 versions",
-				"> 5%",
+				//"last 2 versions",
+				"> 0%",
 				"Firefox >= 30",
-				"ie >= 11" // версии поддерживаемых браузеров
+				"ie <= 11" // версии поддерживаемых браузеров
 			],
 			cascade: false
 		}),

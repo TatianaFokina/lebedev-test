@@ -1,265 +1,294 @@
 doctype html
 html(lang="en")
 
-head
-	meta(charset="UTF-8")
-	meta(name="viewport" content="width=device-width, initial-scale=1")
-	meta(http-equiv="x-ua-compatible" content="ie=edge")
-	title Тестовое задание done!
-	meta(name="description" content="Лендингстый лендинг")
-	link(rel="stylesheet" href="/css/bundle.css")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(http-equiv="x-ua-compatible" content="ie=edge")
+		title Тестовое задание done!
+		meta(name="description" content="Лендингстый лендинг")
+		link(rel="stylesheet" href="/css/bundle.css")
 
-body
+	body
 
-	//-Header
-	header.header
-		.header__container.container
-			img(src="../imgs/lebedev-studio.svg" alt="Lebedev logo").header__logo.g-logo
-			.header__acc-wrp
-				a(href="#" aria-label="Your account").acc
-					.acc__avatar
-						img(src="../imgs/avatar.png" alt="").acc__avatar-img
-						span.acc__avatar-counter 2
-					.acc__name Alice Hopkins
-				//-Menu
-				.acc-dropdown-wrp
-					button.acc-dropdown-btn(aria-label="Account settings")
-					nav.acc-dropdown
-						ul.acc-dropdown__list
+		//-Header
+		header.header
+			.header__container.container
+				img(src="../imgs/lebedev-studio.svg" alt="Lebedev logo").header__logo.g-logo
+				.header__acc-wrp
+					a(href="#" aria-label="Your account").acc
+						.acc__avatar
+							img(src="../imgs/avatar.png" alt="").acc__avatar-img
+							span.acc__avatar-counter 2
+						.acc__name Alice Hopkins
+					//-Menu
+					.acc-dropdown-wrp
+						button.acc-dropdown-btn(aria-label="Account settings")
+						nav.acc-dropdown
+							ul.acc-dropdown__list
+								mixin list-item($itemName)
+									li.acc-dropdown__list-item
+										a(href="#").acc-dropdown__lnk= $itemName
+										block
 
-							mixin list-item($itemName)
-								li.acc-dropdown__list-item
-									a(href="#").acc-dropdown__lnk= $itemName
-									block
+								+list-item("Account")
+								+list-item("Settings")
+								+list-item("Messages").d-flex
+									span.acc-dropdown__counter +2
+								+list-item("Help & FAQ")
+								+list-item("Logout")
 
-							+list-item("Account")
-							+list-item("Settings")
-							+list-item("Messages")
-								span.acc-dropdown__counter +2
-							+list-item("Help & FAQ")
-							+list-item("Logout")
+		//-Main content
+		.content
+			.container
+				h1 Landing page
+				//-Section 1
+				.section.section-1
+					h2.section-title I’m ready to dev. test
+					.section-subtitle Ready. Steady. Go.
+					.row
+						//-Checkbox list
+						.col--lg-4
+							ul.section-1__checklist
 
-	//-Main content
-	.content
-		.container
-			h1 Landing page
+								mixin checklist-item($labelId, $labelName, $idInput, $val)
+									li.checklist-item
+										label.checklist-item__checkbox(for=$labelId)= $labelName
+											input(type="checkbox" id=$idInput value=$val checked).checklist-item__input
+											span.checklist-item__custom-input
 
-			//-Section 1
-			.section.section-1
-				h2.section-title I’m ready to dev. test
-				.section-subtitle Ready. Steady. Go.
-				.row
-					//-Checkbox list
-					.col--lg-4
-						ul.section-1__checklist
+								+checklist-item("check1", "I will not xerox my butt", "check1", "1")
+								+checklist-item("check2", "Funny noises are not funny", "check2", "2")
+								+checklist-item("check3", "A burp is not an answer", "check3", "3")
+								+checklist-item("check4", "I will not skateboard in the halls", "check4", "4")
+								+checklist-item("check5", "I will not show off", "check5", "5")
+								+checklist-item("check6", "I am not a robot", "check6", "6")
 
-							mixin checklist-item($labelId, $labelName, $idInput, $val)
-								li.checklist-item
-									label.checklist-item__checkbox(for=$labelId)= $labelName
-										input(type="checkbox" id=$idInput value=$val checked).checklist-item__input
-										span.checklist-item__custom-input
+						// Thumbnails
+						.section-1__pics.col--lg-8
 
-							+checklist-item("check1", "I will not xerox my butt", "check1", "1")
-							+checklist-item("check2", "Funny noises are not funny", "check2", "2")
-							+checklist-item("check3", "A burp is not an answer", "check3", "3")
-							+checklist-item("check4", "I will not skateboard in the halls", "check4", "4")
-							+checklist-item("check5", "I will not show off", "check5", "5")
-							+checklist-item("check6", "I am not a robot", "check6", "6")
+							mixin thmb($imgSrc, $imgAlt)
+								.section-1__pics__item-wrp
+									img(src= $imgSrc alt= $imgAlt).section-1__pics__item
 
-					// Thumbnails
-					.section-1__pics.col--lg-8
+							+thmb("../imgs/tmbs/thmb-1.png", "Man do PC working")
+							+thmb("../imgs/tmbs/thmb-2.png", "Snippet")
+							+thmb("../imgs/tmbs/thmb-3.png", "Man use a tablet and a PC")
+							+thmb("../imgs/tmbs/thmb-4.png", "Laptop, keyboard lay on a table")
 
-						mixin thmb($imgSrc, $imgAlt)
-							.section-1__pics__item-wrp
-								img(src= $imgSrc alt= $imgAlt).section-1__pics__item
+					.go-further Go further
 
-						+thmb("../imgs/tmbs/thmb-1.png", "Man do PC working")
-						+thmb("../imgs/tmbs/thmb-2.png", "Snippet")
-						+thmb("../imgs/tmbs/thmb-3.png", "Man use a tablet and a PC")
-						+thmb("../imgs/tmbs/thmb-4.png", "Laptop, keyboard lay on a table")
+				//-Section 2
+				.section.section-2
 
-				.go-further Go further
+					//-Slider
+					.slider
 
-			//-Section 2
-			.section.section-2
+						button(aria-pressed="false" aria-label="Next slide page").slider__btn.slider__btn--prev
 
-				//-Slider
-				.slider
+						mixin card($cardSrc, $cardTitle, $cardRating, $cardDesc)
+							article.card
+								img.card__preview(src= $cardSrc alt="")
+								button(aria-label="Add card").card__btn-add
+								.card__content
+									h4.card__content-title= $cardTitle
+									.card__content-rating
+										.content-rating__num= $cardRating
+										.content-rating__counter(class="card__rating__counter--" + Math.round($cardRating))
+									p.card__desc= $cardDesc
+						.slider__cards(class="--active")
+							+card("../imgs/cards/card-img-1.png", "Origin bridge", "4.3", "Our team is deeply experienced and we lend to businesses in a diverse range of industries.")
+							+card("../imgs/cards/card-img-2.png", "Chronogate exp.", "5.0", "We offer competitive products across the debt capital structure, primarily serving borrowers.")
+							+card("../imgs/cards/card-img-3.png", "Fashion week", "5.0", "Swimming hundreds of feet beneath the ocean’s surface in many parts.")
+						.slider__cards
+							+card("../imgs/cards/card-img-2.png", "Chronogate exp.", "4.0", "We offer competitive products across the debt capital structure, primarily serving borrowers.")
 
-					button(aria-pressed="false" aria-label="Next slide page").slider__btn.slider__btn--prev
-
-					mixin card($cardSrc, $cardTitle, $cardRating, $cardDesc)
-						article.card
-							img.card__preview(src= $cardSrc alt="")
-							button(aria-label="Add card").card__btn-add
-							.card__content
-								.card__content-title= $cardTitle
-								.card__content-rating
-									.content-rating__num= $cardRating
-									.content-rating__counter(class="card__rating__counter--" + Math.round($cardRating))
-								p.card__desc= $cardDesc
-
-					+card("../imgs/cards/card-img-1.png", "Origin bridge", "4.3", "Our team is deeply experienced and we lend to businesses in a diverse range of industries.")
-					+card("../imgs/cards/card-img-2.png", "Chronogate exp.", "5.0", "We offer competitive products across the debt capital structure, primarily serving borrowers.")
-					+card("../imgs/cards/card-img-3.png", "Fashion week", "5.0", "Swimming hundreds of feet beneath the ocean’s surface in many parts.")
-
-					button(aria-pressed="false" aria-label="Previous slide").slider__btn.slider__btn--next
+						button(aria-pressed="false" aria-label="Previous slide").slider__btn.slider__btn--next
 
 					.slider__dots
 						.slider__dots__dot.slider__dots__dot--active
 						.slider__dots__dot
 
-			//-Section 3
-			.section.section-3
-				h2.section-title I’d like trrrr & tddd
-				.section-subtitle < >
+				//-Section 3
+				.section.section-3
+					h2.section-title I’d like trrrr & tddd
+					.section-subtitle &lt; &gt;
 
-				//-Table
-				table.cart
-					thead.cart__head
-						th(scope="col").cart__head-item Product
-						th(scope="col").cart__head-item Color
-						th(scope="col").cart__head-item Size
-						th(scope="col").cart__head-item Quantity
-						th(scope="col").cart__head-item Total Price
-						th(scope="col").cart__head-item
-					tbody.cart__body
+					//-Table
+					table.cart
+						thead.cart__head
+							tr
+								th(scope="col").cart__head-item Product
+								th(scope="col").cart__head-item Color
+								th(scope="col").cart__head-item Size
+								th(scope="col").cart__head-item Quantity
+								th(scope="col").cart__head-item Total Price
+								th(scope="col").cart__head-item
+						tbody.cart__body
 
-						mixin cart-row($itemImg, $itemName, $itemSize, $itemPrice)
-							tr.cart__row
-								td.cart__cell
-									img(src= $itemImg alt="").product-img
-									span.product-name= $itemName
-								td.cart__cell
-									button.field-color
-										.field-color__current
-								td.cart__cell
-									button.field-size
-										.field-size__current= $itemSize
-								td.cart__cell
-									.field-quantity
-										button.field-quantity__minus
-										input.field-quantity__input
-										button.field-quantity__plus
-								td.cart__cell.cart__price= $itemPrice
-								td.cart__cell
-									button(aria-label="Remove item").cart__btn-remove
+							mixin cart-row($itemImg, $itemName, $itemSize, $itemVal, $icoMod, $itemPrice)
+								tr.cart__row
+									td.cart__cell
+										img(src= $itemImg alt="").product-img
+										span.product-name= $itemName
+									td.cart__cell
+										.dropdown-wrp
+											button.field-color.dropdown-control
+												span.field-color__current
+											ul.dropdown-list.dropdown-list--prop
+												mixin list-item($mod)
+													li.dropdown-list__item
+														.dropdown-list__item__inr
+															.dropdown-list__item__color(class="dropdown-list__item__color--" + $mod)
 
-						+cart-row("../imgs/table/table-img-1.png", "Sweater Hooded", "S", "$79.98")
-						+cart-row("../imgs/table/table-img-2.png", "Printed T-Shirt", "XS", "$79.98")
+												+list-item("1")
+												+list-item("2")
+												+list-item("3")
+												+list-item("4")
+												+list-item("5")
+									td.cart__cell
+										.dropdown-wrp
+											button.field-size.dropdown-control= $itemSize
+											ul.dropdown-list.dropdown-list--prop
+												each $val in ["XS", "S", "M", "L", "XL"]
+													li.dropdown-list__item
+														.dropdown-list__item__inr= $val
+									td.cart__cell
+										.field-quantity
+											input(value= $itemVal).field-quantity__input
+											button(class="field-quantity__minus field-quantity__minus--" + $icoMod)
+											button.field-quantity__plus
+									td.cart__cell.cart__price= $itemPrice
+									td.cart__cell
+										button(aria-label="Remove item").cart__btn-remove
 
-				.cart__purchase-details
-					.cart__shiping-price
-						span.cart__purchase-details__label Shipping:
-						span.cart__purchase-details__val $9.99
-					.cart__total-price
-						span.cart__purchase-details__label Total:
-						span.cart__purchase-details__val $104.39
-					.cart__actions
-						a(href="#").cart__actions__lnk Continue shopping
-						a(href="#").cart__actions__btn Proceed checkout
+							+cart-row("../imgs/table/table-img-1.png", "Sweater Hooded", "S", "2", "active", "$79.98")
+							+cart-row("../imgs/table/table-img-2.png", "Printed T-Shirt", "XS", "1", "disabled", "$79.98")
 
-				.benefits
+					.cart__purchase-details
+						.cart__shiping-price
+							span.cart__purchase-details__label Shipping:
+							span.cart__purchase-details__val $9.99
+						.cart__total-price
+							span.cart__purchase-details__label Total:
+							span.cart__purchase-details__val $104.39
+						.cart__actions
+							a(href="#").cart__actions__lnk Continue shopping
+							a(href="#").cart__actions__btn Proceed checkout
 
-					mixin benefit-card($item, $price, $benefitLabel, $profitMod, $benefitVal)
-						.card-benefit
-							.card-benefit__ico(class="card-benefit__ico--" + $item)
-								.card-benefit__ico__img(class="card-benefit__ico__img--" + $item)
-							.card-benefit__info
-								.card-benefit__info-price= $price
-								.card-benefit__info-profit
-									span.profit-label= $benefitLabel
-									span(class="profit-val profit-val-" + $profitMod)= $benefitVal
+					.benefits.row
 
-					+benefit-card("1", "$ 17,675", "Total profit", "up", "+$489")
-					+benefit-card("2", "$ 7,831", "Total revenue", "up", "+$189")
-					+benefit-card("3", "$ 298,45", "Average profit", "down", "-$39")
+						mixin benefit-card($item, $price, $benefitLabel, $profitMod, $benefitVal)
+							.col--sm
+								.card-benefit
+									.card-benefit__ico(class="card-benefit__ico--" + $item)
+										.card-benefit__ico__img(class="card-benefit__ico__img--" + $item)
+									.card-benefit__info
+										.card-benefit__info-price= $price
+										.card-benefit__info-profit
+											span.profit-label= $benefitLabel
+											span(class="profit-val profit-val-" + $profitMod)= $benefitVal
 
-			//-Section 4
-			article.section.section-4
-				h2.section-title Capable, Reliable & Experienced
-				.section-subtitle As Agent and Lead Arranger
-				p.article-text Varabart serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to $75 million of EBITDA.Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital markets capabilities allow us to provide total debt solutions with certainty of close.
-				p.article-text We are a value-added partner to private equity with a track record of delivering flexible financing and reliable execution across multiple transactions. We are committed to supporting a firm's objectives over the complete lifecycle of an investment, including facilitating organic growth, financing acquisitions, and completing recapitalizations.
-				figure.article-pic.article-pic-1
-					img.article-pic-1__img(src="../imgs/text/penguins.png" alt="A lot of penguins")
-					figcaption.article-pic-1__caption Each member of our coverage team has spent their entire careers in the middle market. We have deep experience structuring, underwriting, and managing investments in a range of industries, as well as the resources to deliver efficient commitments and timely execution.
+						+benefit-card("1", "$ 17,675", "Total profit", "up", "+$489")
+						+benefit-card("2", "$ 7,831", "Total revenue", "up", "+$189")
+						+benefit-card("3", "$ 298,45", "Average profit", "down", "-$39")
 
-			//-Section 5
-			article.section.section-5
-				h2.section-title Experienced team of middle market professionals
-				.section-subtitle Senior Direct Lending Program
-				p.article-text.p-margin-default Nogarav serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to $75 million of EBITDA. Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital markets capabilities allow us to provide total debt solutions with certainty of close.
-				.row
-					.col--lg-4
-						figure.article-pic.article-pic-2
-							img.article-pic-2__img(src="../imgs/text/chairs.png" alt="A lot of chairs")
-							figcaption.article-pic-2__caption
-								h3.article-pic-2__caption-title Introduction
-								p.article-pic-2__caption-subtitle Nextgen advertising right now
-					.col--lg-8
+				//-Section 4
+				article.section.section-4
+					h2.section-title Capable, Reliable & Experienced
+					.section-subtitle As Agent and Lead Arranger
+					p.article-text Varabart serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to $75 million of EBITDA.Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital markets capabilities allow us to provide total debt solutions with certainty of close.
+					p.article-text We are a value-added partner to private equity with a track record of delivering flexible financing and reliable execution across multiple transactions. We are committed to supporting a firm's objectives over the complete lifecycle of an investment, including facilitating organic growth, financing acquisitions, and completing recapitalizations.
+					figure.article-pic.article-pic-1
+						img.article-pic-1__img(src="../imgs/text/penguins.png" alt="A lot of penguins")
+						figcaption.article-pic-1__caption Each member of our coverage team has spent their entire careers in the middle market. We have deep experience structuring, underwriting, and managing investments in a range of industries, as well as the resources to deliver efficient commitments and timely execution.
 
-						p.article-text Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are notparticularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every
-							span.article-name-par.
-								In
-								tro
-								duct
-								ion
-							|  day, they construct one or more spacious houses” that can exceed three feet in length. The houses are transparent mucus structures that encase the creatures inside. Giant larvaceans beat their tails to pump seawater through these structures, which filter tiny bits of dead or drifting organic matter for the animals to eat. When their filters get clogged, the larvaceans abandon ship and construct a new house. Laden with debris from the water column, old houses rapidly sink to the seafloor. In a study published in Science Advances on Wednesday, scientists near California’s Monterey Bay have found that, through this process, giant larvaceans can filter all of the bay’s water. That has been removed from the atmosphere by photosynthesizing organisms to the deep sea, where it can be buried and stored long term. And given their abundance in other parts of the world, these organisms likely play a crucial role in the global carbon cycle. When it comes to the flow of carbon in the ocean, we don’t know nearly as much as we should,” said Kakani Katija, a principal engineer at the Monterey Bay Aquarium Research Institute and the study’s lead author.
-						p.article-remark If we really want to understand how the system works, we have to look at all the players involved. Giant larvaceans are one important group we need to learn more about.” In the past, other scientists have tried studying giant larvaceans in the laboratory. But these efforts always failed because the animals’ houses were too fragile to be harvested and collected specimens were never able to build houses outside the ocean.
-						p.article-text To study the zooplankton in their natural habitat, Dr. Katija and her collaborators developed a new deep-sea imaging instrument, called DeepPIV, which they paired with a remotely operated vehicle. DeepPIV projects a sheet of laser light that cuts straight through a larvacean’s mucus house. A high-definition camera on the remotely operated vehicle can then capture the inner pumping mechanisms illuminated by the laser.
+				//-Section 5
+				article.section.section-5
+					h2.section-title Experienced team of middle market professionals
+					.section-subtitle Senior Direct Lending Program
+					p.article-text.p-margin-default Nogarav serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to $75 million of EBITDA. Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital markets capabilities allow us to provide total debt solutions with certainty of close.
+					.row
+						.col--lg-4
+							figure.article-pic.article-pic-2
+								img.article-pic-2__img(src="../imgs/text/chairs.png" alt="A lot of chairs")
+								figcaption.article-pic-2__caption
+									h3.article-pic-2__caption-title Introduction
+									p.article-pic-2__caption-subtitle Nextgen advertising right now
+						.col--lg-8
 
-			//-Section 6
-			.section.section-6
-				h2.section-title Sign up
-				.section-subtitle Register and share
-				//-Form
-				.row
-					.col--lg-6
-						form.signup
-							.row
-								.col--lg-6
-									.signup__field
-										label.signup__field-label(for="name") Your name
-										input.signup__field-input(type="text" name="name" id="name")
-									.signup__field
-										label.signup__field-label(for="name") E-mail
-										input.signup__field-input(type="email" name="email" id="email")
-									.signup__field
-										label.signup__field-label(for="country") Your country
-										input.signup__field-input(type="text" name="country" id="country")
-									.signup__field
-										label.signup__field-label(for="age") Your age
-										input.signup__field-input(type="text" name="age" id="age")
-									.signup__radio
-										fieldset
-											legend.radio-label Gender:
-											.radio-group
-												.radio-group__field
-													input.radio-group__field-input(type="radio" id="v1" name="gender" value="male" checked)
-													label.radio-group__field-label(for="v1") Male
-												.radio-group__field
-													input.radio-group__field-input(type="radio" id="v2" name="gender" value="female")
-													label.radio-group__field-label(for="v2") Female
-								.col--lg-6
-									.signup__field
-										label.signup__field-label(for="password") Password
-										input.signup__field-input(type="password" name="password" id="password" pattern="[6-25]{5}" aria-describedby="password-desc")
-									.signup__field
-										label.signup__field-label(for="password2") Confirm password
-										input.signup__field-input(type="password" name="password-2" id="password2" pattern="[6-25]{5}" aria-describedby="password-desc")
-									ul.rules-list
-										li.rules-list__item(lang="ru") Не менее 6 символов
-										li.rules-list__item(lang="ru") Заглавные и строчные буквы
-										li.rules-list__item(lang="ru") Цифры и специальные знаки
+							p.article-text Swimming hundreds of feet beneath the ocean’s surface in many parts of the world are prolific architects called giant larvaceans. These zooplankton are notparticularly giant themselves (they resemble tadpoles and are about the size of a pinkie finger), but every
+								span.article-name-par.
+									In
+									tro
+									duct
+									ion
+								|  day, they construct one or more spacious houses” that can exceed three feet in length. The houses are transparent mucus structures that encase the creatures inside. Giant larvaceans beat their tails to pump seawater through these structures, which filter tiny bits of dead or drifting organic matter for the animals to eat. When their filters get clogged, the larvaceans abandon ship and construct a new house. Laden with debris from the water column, old houses rapidly sink to the seafloor. In a study published in Science Advances on Wednesday, scientists near California’s Monterey Bay have found that, through this process, giant larvaceans can filter all of the bay’s water. That has been removed from the atmosphere by photosynthesizing organisms to the deep sea, where it can be buried and stored long term. And given their abundance in other parts of the world, these organisms likely play a crucial role in the global carbon cycle. When it comes to the flow of carbon in the ocean, we don’t know nearly as much as we should,” said Kakani Katija, a principal engineer at the Monterey Bay Aquarium Research Institute and the study’s lead author.
+							p.article-remark If we really want to understand how the system works, we have to look at all the players involved. Giant larvaceans are one important group we need to learn more about.” In the past, other scientists have tried studying giant larvaceans in the laboratory. But these efforts always failed because the animals’ houses were too fragile to be harvested and collected specimens were never able to build houses outside the ocean.
+							p.article-text To study the zooplankton in their natural habitat, Dr. Katija and her collaborators developed a new deep-sea imaging instrument, called DeepPIV, which they paired with a remotely operated vehicle. DeepPIV projects a sheet of laser light that cuts straight through a larvacean’s mucus house. A high-definition camera on the remotely operated vehicle can then capture the inner pumping mechanisms illuminated by the laser.
 
-						button.signup-btn(type="submit") Sign up
-					figure.signup-pic.col--lg-6
-						img.signup-pic__img(src="../imgs/career-progress.png" alt="Man in front of a mirror")
-						figcaption.signup-pic__caption If we really want to understand how the system works, we have to look at all the players involved. Giant larvaceans are one important group we need to learn more about.
+				//-Section 6
+				.section.section-6
+					h2.section-title Sign up
+					.section-subtitle Register and share
+					//-Form
+					.row
+						.col--lg-6
+							form.signup
+								.row
+									.col--lg-6
+										.signup__field
+											input.signup__field-input(type="text" name="name" id="name" required)
+											label.signup__field-label(for="name") Your name
+										.signup__field
+											input.signup__field-input.signup__field-input--error(type="text" name="email" id="email" required)
+											label.signup__field-label(for="email") E-mail
+											.signup__field-message-error Incorrect address
+										.signup__field.signup__field--dropdown.dropdown-wrp
+											.signup__field-input.signup__field-input--dropdown.dropdown-control Your country
+											ul.dropdown-list.dropdown-list--countries
+												each $val in ["Russia", "Indonesia", "England", "USA", "My room"]
+													li.dropdown-list__item
+														.dropdown-list__item__inr= $val
+										.signup__field.signup__field--dropdown.dropdown-wrp
+											.signup__field-input.signup__field-input--dropdown.dropdown-control Your age
+											ul.dropdown-list.dropdown-list--prop
+												each $val in ["24", "25", "26", "27", "28"]
+													li.dropdown-list__item
+														.dropdown-list__item__inr= $val
+										.signup__radio
+											fieldset
+												legend.radio-label Gender:
+												.radio-group
+													.radio-group__field
+														input.radio-group__field-input(type="radio" id="v1" name="gender" value="male" checked)
+														label.radio-group__field-label(for="v1") Male
+													.radio-group__field
+														input.radio-group__field-input(type="radio" id="v2" name="gender" value="female")
+														label.radio-group__field-label(for="v2") Female
+									.col--lg-6
+										.signup__field
+											input.signup__field-input.signup__field-input--success(type="password" name="password" id="password" required)
+											label.signup__field-label(for="password") Password
+											.signup__field-message-success Good pass
+										.signup__field
+											input.signup__field-input(type="password" name="password-2" id="password2" required)
+											label.signup__field-label(for="password2") Confirm password
+										ul.rules-list
+											li.rules-list__item.rules-list__item--success(lang="ru") Не менее 6 символов
+											li.rules-list__item.rules-list__item--success(lang="ru") Заглавные и строчные буквы
+											li.rules-list__item(lang="ru") Цифры и специальные знаки
 
-	//-Footer
-	footer(role="contentinfo").footer
-		.footer__container.container
-			img(src="../imgs/lebedev-studio.svg" alt="Lebedev logo").footer__logo.g-logo
-			.footer__text I'm done :)
+							button.signup-btn(type="submit" value="signup") Sign up
+						figure.signup-pic.col--lg-6
+							img.signup-pic__img(src="../imgs/career-progress.png" alt="Man in front of a mirror")
+							figcaption.signup-pic__caption If we really want to understand how the system works, we have to look at all the players involved. Giant larvaceans are one important group we need to learn more about.
+
+		//-Footer
+		footer(role="contentinfo").footer
+			.footer__container.container
+				img(src="../imgs/lebedev-studio.svg" alt="Lebedev logo").footer__logo.g-logo
+				.footer__text I'm done :)
+
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+		script(src="js/bundle.js")

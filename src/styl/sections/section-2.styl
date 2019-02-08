@@ -4,21 +4,37 @@
 
 // Slider
 .slider
-	@extend .d-flex
-	align-items center
-	flex-wrap wrap
+	//width 100%
 	position relative
 
+
+.slider__cards
+	@extend .d-flex
+	align-items center
+	position relative
+
+	
+.slider__cards
+	display none
+	align-items center
+	position relative
+	transition transform .8s ease-in-out // add animation for slider
+	&.--active
+		@extend .d-flex
+
 //	Slider buttons
-$slider-btn-space = -34px
+$slider-btn-size = 44px
+$slider-btn-space = -($slider-btn-size + 16)
 
 .slider__btn
-	width 11px
-	height 27px
+	width $slider-btn-size
+	height $slider-btn-size
 	@extend .btn-reset
 	position absolute
-	background-size cover
-	background-position 0 50%
+	top 50%
+	transform translateY(-50%)
+	background-size 11px
+	background-position center
 	background-repeat no-repeat
 	&--prev
 		left $slider-btn-space

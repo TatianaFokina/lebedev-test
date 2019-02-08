@@ -21,6 +21,9 @@ $header-height = 48px
 	@extend .d-flex
 	align-items center
 	
+.header__container
+	position relative
+
 .header__acc-wrp
 	margin-left auto
 
@@ -72,13 +75,9 @@ $header-height = 48px
 // Button
 .acc-dropdown-btn
 	@extend .btn-reset
-	width 10px
-	height 2px
+	width 24px
+	height 24px
 	background-image url("../imgs/icons/ico-more.svg")
 	background-position 0 50%
-	background-size cover
+	background-size auto 2px
 	background-repeat no-repeat
-
-// Dropdown menu
-.acc-dropdown
-	@extend .hidden // todo Временно!

@@ -1,0 +1,128 @@
+// ===================================================================================================================
+// Dropdown menu
+// ===================================================================================================================
+
+// Common styles
+.acc-dropdown
+.dropdown-list
+	display none
+	position absolute
+	background $brand-white
+	z-index 11
+
+.dropdown-list
+	left 0
+
+.dropdown-wrp
+	position relative
+
+.dropdown-list
+.acc-dropdown
+	@extend .list-reset
+	box-shadow 0 0 4px rgba(60, 66, 77, 0.2)
+	border-radius 2px
+	background $brand-white
+
+.dropdown-list
+.acc-dropdown__list
+	padding 4px 0
+	
+// Common styles for list items
+.dropdown-list__item
+.acc-dropdown__list-item
+	padding 0 4px
+
+.dropdown-list__item__inr
+.acc-dropdown__lnk
+	padding 12px 0 12px 9px
+	border-bottom 1px solid $brand-2
+
+.dropdown-list__item__inr
+.acc-dropdown__lnk
+	font-size $font-size-sm
+	
+.acc-dropdown__lnk
+	display block
+
+// Hover styles
+.dropdown-list__item:hover
+.acc-dropdown__list-item:hover
+	background $disabled-color
+
+.dropdown-list__item:hover .dropdown-list__item__inr
+.acc-dropdown__list-item:hover .acc-dropdown__lnk
+	border-color transparent
+
+
+
+
+// Styles for header menu
+.acc-dropdown
+	min-width 260px
+	height auto
+	top 34px
+	right 11px
+	background $brand-white
+	transform translate(0)
+	// Triangle
+	&:before
+		width 12px
+		height @width
+		content ""
+		position absolute
+		top -5px
+		right calc(260px / 28)
+		background $brand-white
+		transform rotate(-45deg)
+		box-shadow 0 0 4px rgba(60, 66, 77, 0.2)
+		z-index -1
+
+.acc-dropdown__list
+	@extend .list-reset
+	background $brand-white
+
+.acc-dropdown
+	&__lnk
+		color $brand-4
+	&__list-item
+		position relative
+	&__counter
+		width 22px
+		height 11px
+		@extend .d-flex
+		position absolute
+		top 50%
+		left 85px
+		transform translateY(-50%)
+		align-items center
+		justify-content center
+		font-size $font-size-xxs
+		line-height 1
+		color $brand-white
+		background $brand-1
+		border-radius 56px
+
+
+// Styles for sizes, ages and colors dropdown menu
+.dropdown-list--prop
+	min-width 88px
+	
+.dropdown-list__item__color
+	width 24px
+	height @width
+	&--1
+		background $brand-3
+	&--2
+		background $brand-4
+	&--3
+		background $success-color
+	&--4
+		background $error-color
+	&--5
+		background $warning-color
+
+
+// Styles for form dropdown menu
+.dropdown-list--countries
+	min-width 248px
+	

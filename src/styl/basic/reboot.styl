@@ -38,10 +38,6 @@ address
 
 
 
-
-/*dt
-	font-weight $dt-font-weight*/
-
 dd
 	margin-bottom 0.5rem
 	margin-left 0
@@ -107,7 +103,7 @@ select,
 summary,
 textarea
 	touch-action manipulation
-	//outline none !important
+	outline none !important
 
 input,
 button,
@@ -193,11 +189,13 @@ output
 	display none !important
 	
 // Selection
+$selection-color = alpha($brand-1, 20%)
+
 ::selection
-	background-color red
+	background-color $selection-color
 	text-shadow none
 
 ::-moz-selection
-	background-color red
+	background-color $selection-color
 	color $brand-white
 	text-shadow none

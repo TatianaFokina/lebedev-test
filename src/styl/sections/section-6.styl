@@ -6,7 +6,7 @@
 .signup__field
 	position relative
 	&:not(:last-of-type)
-		margin-bottom 38px
+		margin-bottom 20px
 	&-input
 		width 100%
 		padding 9px 0 7px 0
@@ -15,17 +15,62 @@
 		outline none
 	&-label
 		position absolute
-		bottom 7px
+		left 0
+		top 14px
 		font-size $font-size-sm
-		transition all 150ms
+	&-label
+		transition all 0.2s
 
-// Float label animation
-signup__field-input:focus + signup__field-label
-signup__field-input:valid + signup__field-label
-	font-size 75%
-	transform translate3d(0, -100%, 0)
+// Fields states
+.signup__field
+	&-input--success
+		border-bottom 1px solid $success-color
+	&-input--error
+		border-bottom 1px solid $error-color
+	&-message-success
+	&-message-error
+		margin-top 4px
+		display block
+		font-size $font-size-xs
+	&-message-success
+		color $success-color
+	&-message-error
+		color $error-color
 
 
+
+
+// Float labels
+.signup__field-input:focus + .signup__field-label
+.signup__field-input.--filled + .signup__field-label
+	top -2px
+	font-size $font-size-xs
+	color $brand-2
+	transform translate(0, 0) scale(1)
+	
+// Styles for active inputs
+.signup__field-input:focus
+	border-bottom 1px solid $hover-color
+
+
+
+
+// Field with dropdown menu
+.signup__field-input--dropdown
+	background-image url("../imgs/icons/ico-down-arrow--form.svg")
+	background-position 96% 60%
+	background-size 9px 4px
+	background-repeat no-repeat
+	&:hover
+		background-image url("../imgs/icons/ico-arrow-active-down--form.svg")
+		border-bottom 1px solid $hover-color
+		color $hover-color
+	&:active
+	&:focus
+	&.--opened
+		background-image url("../imgs/icons/ico-arrow-up--form.svg")
+		border-bottom 1px solid $hover-color
+		
 
 
 // Radio buttons
@@ -58,6 +103,7 @@ signup__field-input:valid + signup__field-label
 .radio-group__field-input + .radio-group__field-label:after
 	content ""
 	position absolute
+	border 1px solid
 	border-radius 50%
 
 .radio-group__field-input + .radio-group__field-label:before
@@ -65,7 +111,7 @@ signup__field-input:valid + signup__field-label
 	height @width
 	left 0
 	top 0
-	border 1px solid $brand-3
+	border-color $brand-3
 
 .radio-group__field-input + .radio-group__field-label:after
 	left 6px
@@ -78,7 +124,7 @@ signup__field-input:valid + signup__field-label
 .radio-group__field .radio-group__field-input:checked + .radio-group__field-label:after
 	opacity 1
 .radio-group__field-input:checked + .radio-group__field-label:before
-	border 1px solid $brand-1
+	border-color $brand-1
 
 
 
@@ -122,6 +168,8 @@ signup__field-input:valid + signup__field-label
 		background-size cover
 		background-position center
 		background-repeat no-repeat
+	&__item--success:before
+		background-image url("../imgs/icons/ico-bullet--success.svg")
 
 
 
