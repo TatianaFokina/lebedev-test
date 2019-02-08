@@ -13,11 +13,11 @@ html(lang="en")
 		//-Header
 		header.header
 			.header__container.container
-				img(src="../imgs/lebedev-studio.svg" alt="Lebedev logo").header__logo.g-logo
+				img(src="imgs/lebedev-studio.svg" alt="Lebedev logo").header__logo.g-logo
 				.header__acc-wrp
 					a(href="#" aria-label="Your account").acc
 						.acc__avatar
-							img(src="../imgs/avatar.png" alt="").acc__avatar-img
+							img(src="imgs/avatar.png" alt="").acc__avatar-img
 							span.acc__avatar-counter 2
 						.acc__name Alice Hopkins
 
@@ -71,10 +71,10 @@ html(lang="en")
 								.section-1__pics__item-wrp
 									img(src= $imgSrc alt= $imgAlt).section-1__pics__item
 
-							+thmb("../imgs/tmbs/thmb-1.png", "Man do PC working")
-							+thmb("../imgs/tmbs/thmb-2.png", "Snippet")
-							+thmb("../imgs/tmbs/thmb-3.png", "Man use a tablet and a PC")
-							+thmb("../imgs/tmbs/thmb-4.png", "Laptop, keyboard lay on a table")
+							+thmb("imgs/tmbs/thmb-1.png", "Man do PC working")
+							+thmb("imgs/tmbs/thmb-2.png", "Snippet")
+							+thmb("imgs/tmbs/thmb-3.png", "Man use a tablet and a PC")
+							+thmb("imgs/tmbs/thmb-4.png", "Laptop, keyboard lay on a table")
 
 					.go-further Go further
 
@@ -97,11 +97,11 @@ html(lang="en")
 										.content-rating__counter(class="card__rating__counter--" + Math.round($cardRating))
 									p.card__desc= $cardDesc
 						.slider__cards(class="--active")
-							+card("../imgs/cards/card-img-1.png", "Origin bridge", "4.3", "Our team is deeply experienced and we lend to businesses in a diverse range of industries.")
-							+card("../imgs/cards/card-img-2.png", "Chronogate exp.", "5.0", "We offer competitive products across the debt capital structure, primarily serving borrowers.")
-							+card("../imgs/cards/card-img-3.png", "Fashion week", "5.0", "Swimming hundreds of feet beneath the ocean’s surface in many parts.")
+							+card("imgs/cards/card-img-1.png", "Origin bridge", "4.3", "Our team is deeply experienced and we lend to businesses in a diverse range of industries.")
+							+card("imgs/cards/card-img-2.png", "Chronogate exp.", "5.0", "We offer competitive products across the debt capital structure, primarily serving borrowers.")
+							+card("imgs/cards/card-img-3.png", "Fashion week", "5.0", "Swimming hundreds of feet beneath the ocean’s surface in many parts.")
 						.slider__cards
-							+card("../imgs/cards/card-img-2.png", "Chronogate exp.", "4.0", "We offer competitive products across the debt capital structure, primarily serving borrowers.")
+							+card("imgs/cards/card-img-2.png", "Chronogate exp.", "4.0", "We offer competitive products across the debt capital structure, primarily serving borrowers.")
 
 						button(aria-pressed="false" aria-label="Previous slide").slider__btn.slider__btn--next
 
@@ -162,8 +162,8 @@ html(lang="en")
 									td.cart__cell
 										button(aria-label="Remove item").cart__btn-remove
 
-							+cart-row("../imgs/table/table-img-1.png", "Sweater Hooded", "S", "2", "active", "$79.98")
-							+cart-row("../imgs/table/table-img-2.png", "Printed T-Shirt", "XS", "1", "disabled", "$79.98")
+							+cart-row("imgs/table/table-img-1.png", "Sweater Hooded", "S", "2", "active", "$79.98")
+							+cart-row("imgs/table/table-img-2.png", "Printed T-Shirt", "XS", "1", "disabled", "$79.98")
 
 					.cart__purchase-details
 						.cart__shiping-price
@@ -200,7 +200,7 @@ html(lang="en")
 					p.article-text Varabart serves leading middle market companies and private equity firms. We build lasting relationships as a reliable financing partner that supports growing businesses. We offer competitive products across the debt capital structure, primarily serving borrowers with $10 million to $75 million of EBITDA.Our team is deeply experienced and we lend to businesses in a diverse range of industries. Our hold sizes and capital markets capabilities allow us to provide total debt solutions with certainty of close.
 					p.article-text We are a value-added partner to private equity with a track record of delivering flexible financing and reliable execution across multiple transactions. We are committed to supporting a firm's objectives over the complete lifecycle of an investment, including facilitating organic growth, financing acquisitions, and completing recapitalizations.
 					figure.article-pic.article-pic-1
-						img.article-pic-1__img(src="../imgs/text/penguins.png" alt="A lot of penguins")
+						img.article-pic-1__img(src="imgs/text/penguins.png" alt="A lot of penguins")
 						figcaption.article-pic-1__caption Each member of our coverage team has spent their entire careers in the middle market. We have deep experience structuring, underwriting, and managing investments in a range of industries, as well as the resources to deliver efficient commitments and timely execution.
 
 				//-Section 5
@@ -211,7 +211,7 @@ html(lang="en")
 					.row
 						.col--lg-4
 							figure.article-pic.article-pic-2
-								img.article-pic-2__img(src="../imgs/text/chairs.png" alt="A lot of chairs")
+								img.article-pic-2__img(src="imgs/text/chairs.png" alt="A lot of chairs")
 								figcaption.article-pic-2__caption
 									h3.article-pic-2__caption-title Introduction
 									p.article-pic-2__caption-subtitle Nextgen advertising right now
@@ -281,15 +281,14 @@ html(lang="en")
 
 							button.signup-btn(type="submit" value="signup") Sign up
 						figure.signup-pic.col--lg-6
-							img.signup-pic__img(src="../imgs/career-progress.png" alt="Man in front of a mirror")
+							img.signup-pic__img(src="imgs/career-progress.png" alt="Man in front of a mirror")
 							figcaption.signup-pic__caption If we really want to understand how the system works, we have to look at all the players involved. Giant larvaceans are one important group we need to learn more about.
 
 		//-Footer
 		footer(role="contentinfo").footer
 			.footer__container.container
-				img(src="../imgs/lebedev-studio.svg" alt="Lebedev logo").footer__logo.g-logo
+				img(src="imgs/lebedev-studio.svg" alt="Lebedev logo").footer__logo.g-logo
 				.footer__text I'm done :)
 
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
 		script(src="js/bundle.js")
-

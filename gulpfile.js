@@ -209,7 +209,7 @@ gulp.task('Build', gulp.series(gulp.parallel('__delTest', '__deldocs'), gulp.par
 	// CSS
 	gulp.src('test/css/**/*.css')
 		/*.pipe(purify(['test/!**!/!*.html'], { // убирает неиспользуемые стили
-			whitelist: require('./src/js/whitelist-purify.json') // массив с селекторами. Array of selectors to always leave in. Ex. ['button-active', '*modal*'] this will leave any selector that includes modal in it and selectors that match button-active. (wrapping the string with *'s, leaves all selectors that include it)
+			whitelist: require('./src/js/whitelist-purify.json') // массив с селекторами. Array of selectors to always leave inаа. Ex. ['button-active', '*modal*'] this will leave any selector that includes modal in it and selectors that match button-active. (wrapping the string with *'s, leaves all selectors that include it)
 		}))*/
 		//.pipe(gulp_postcss($postcss_plugins))
 		// Добавляем суффикс .min
